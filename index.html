@@ -697,7 +697,222 @@ height:58px;
     margin-right:12px;
 }
 
+/*==================================================
+PREMIUM TESTIMONIALS
+==================================================*/
 
+.testimonial-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(340px,1fr));
+gap:28px;
+margin-top:60px;
+}
+
+.testimonial-card{
+
+background:rgba(255,255,255,.88);
+
+backdrop-filter:blur(12px);
+
+padding:36px;
+
+border-radius:22px;
+
+border:1px solid rgba(0,180,216,.12);
+
+box-shadow:0 18px 45px rgba(11,27,61,.08);
+
+transition:.4s;
+
+position:relative;
+
+overflow:hidden;
+
+}
+
+.testimonial-card:hover{
+
+transform:translateY(-8px);
+
+box-shadow:0 28px 55px rgba(0,180,216,.16);
+
+}
+
+.testimonial-card::before{
+
+content:"";
+
+position:absolute;
+
+left:-120%;
+
+top:0;
+
+width:70%;
+
+height:100%;
+
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.35),
+transparent);
+
+transform:skewX(-25deg);
+
+transition:.8s;
+
+}
+
+.testimonial-card:hover::before{
+
+left:180%;
+
+}
+
+.quote{
+
+font-size:58px;
+
+color:#00b4d8;
+
+opacity:.18;
+
+margin-bottom:10px;
+
+line-height:1;
+
+}
+
+.review-type{
+
+display:inline-block;
+
+padding:8px 16px;
+
+background:#E8FBFF;
+
+border-radius:50px;
+
+font-size:13px;
+
+font-weight:600;
+
+color:#008fb4;
+
+margin-bottom:18px;
+
+}
+
+.rating{
+
+color:#F5A623;
+
+font-size:19px;
+
+letter-spacing:3px;
+
+margin-bottom:18px;
+
+}
+
+.patient{
+
+margin-top:25px;
+
+padding-top:18px;
+
+border-top:1px solid rgba(0,180,216,.12);
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+}
+
+.verify{
+
+padding:7px 14px;
+
+background:#E8FBFF;
+
+border-radius:30px;
+
+font-size:13px;
+
+font-weight:600;
+
+color:#008fb4;
+
+}
+
+.story-grid{
+
+display:grid;
+
+grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
+
+gap:30px;
+
+margin-top:60px;
+
+}
+
+.story-card{
+
+background:linear-gradient(135deg,#0B1B3D,#173970);
+
+padding:40px;
+
+border-radius:24px;
+
+color:white;
+
+box-shadow:0 25px 60px rgba(11,27,61,.25);
+
+transition:.4s;
+
+}
+
+.story-card:hover{
+
+transform:translateY(-8px);
+
+}
+
+.story-tag{
+
+display:inline-block;
+
+padding:8px 18px;
+
+background:rgba(255,255,255,.12);
+
+border-radius:50px;
+
+margin-bottom:18px;
+
+font-size:13px;
+
+color:#CAF0F8;
+
+}
+
+.story-result{
+
+margin-top:25px;
+
+padding-top:20px;
+
+border-top:1px solid rgba(255,255,255,.15);
+
+font-weight:600;
+
+color:#F5A623;
+
+}
     </style>
 </head>
 <body>
@@ -707,7 +922,7 @@ height:58px;
          ========================================================================== -->
     <div class="top-bar">
         <div class="container">
-            <div>📍 Behind M.J.K. Girls School,Near Town Thana, Before Petrol Pump, Motihari, Bihar</div>
+            <div>📍 Behind M.J.K. Girls School,Near Town Thana, Motihari, Bihar</div>
             <div class="top-bar-links">
                 <span>🕒 Open Daily: 8 AM - 8 PM</span>
                 <a href="tel:9199726999"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg> +91 91997 26999</a>
@@ -991,7 +1206,93 @@ height:58px;
             </div>
         </div>
     </section>
+<section class="section">
 
+<div class="container">
+
+<div class="text-center reveal">
+
+<span class="tagline">Patient Testimonials</span>
+
+<h2>Trusted by Families Across Bihar</h2>
+
+<p>Hear from patients and families who trusted Magadh Pain & Paralysis Clinic for their rehabilitation journey.</p>
+
+</div>
+
+<div class="testimonial-grid">
+
+<div class="testimonial-card reveal">
+<div class="review-type">Back Pain Rehabilitation</div>
+<div class="rating">★★★★★</div>
+<div class="quote">❝</div>
+<p>"I had been suffering from lower back pain for months. The personalised exercises and treatment plan helped me return to my daily routine with much greater comfort."</p>
+<div class="patient">
+<div><strong>Rajesh Kumar</strong><br>📍 Motihari</div>
+<div class="verify">✔ Verified Patient</div>
+</div>
+</div>
+
+<div class="testimonial-card reveal">
+<div class="review-type">Sciatica Care</div>
+<div class="rating">★★★★★</div>
+<div class="quote">❝</div>
+<p>"Professional consultation, modern equipment and patient-friendly care. Every session focused on long-term recovery rather than temporary relief."</p>
+<div class="patient">
+<div><strong>Sunita Devi</strong><br>📍 Chakia</div>
+<div class="verify">✔ Verified Patient</div>
+</div>
+</div>
+
+<div class="testimonial-card reveal">
+<div class="review-type">Neck Pain Treatment</div>
+<div class="rating">★★★★★</div>
+<div class="quote">❝</div>
+<p>"The doctor explained every exercise clearly. My neck stiffness gradually reduced and daily work became much easier."</p>
+<div class="patient">
+<div><strong>Amit Verma</strong><br>📍 Raxaul</div>
+<div class="verify">✔ Verified Patient</div>
+</div>
+</div>
+
+<div class="testimonial-card reveal">
+<div class="review-type">Frozen Shoulder</div>
+<div class="rating">★★★★★</div>
+<div class="quote">❝</div>
+<p>"Very disciplined clinic with genuine guidance. The improvement in shoulder movement exceeded my expectations."</p>
+<div class="patient">
+<div><strong>Priya Sinha</strong><br>📍 Mehsi</div>
+<div class="verify">✔ Verified Patient</div>
+</div>
+</div>
+
+<div class="testimonial-card reveal">
+<div class="review-type">Knee Pain Management</div>
+<div class="rating">★★★★★</div>
+<div class="quote">❝</div>
+<p>"The structured rehabilitation programme improved my confidence while walking. I appreciated the attention given during every visit."</p>
+<div class="patient">
+<div><strong>Manoj Singh</strong><br>📍 Piprakothi</div>
+<div class="verify">✔ Verified Patient</div>
+</div>
+</div>
+
+<div class="testimonial-card reveal">
+<div class="review-type">Stroke Rehabilitation</div>
+<div class="rating">★★★★★</div>
+<div class="quote">❝</div>
+<p>"The care was compassionate and professional. The rehabilitation programme was well planned and encouraged steady progress."</p>
+<div class="patient">
+<div><strong>Anita Kumari</strong><br>📍 Motihari</div>
+<div class="verify">✔ Verified Patient</div>
+</div>
+</div>
+
+</div>
+
+</div>
+
+</section>
     <!-- ==========================================================================
          DOCTOR PROFILE
          ========================================================================== -->
@@ -1036,7 +1337,91 @@ height:58px;
             </div>
         </div>
     </section>
+<section class="section">
 
+<div class="container">
+
+<div class="text-center reveal">
+
+<span class="tagline">Recovery Stories</span>
+
+<h2>Real Rehabilitation Journeys</h2>
+
+<p>Every patient's recovery journey is unique. These examples illustrate how personalised physiotherapy programmes can support improved mobility and quality of life.</p>
+
+</div>
+
+<div class="story-grid">
+
+<div class="story-card reveal">
+
+<div class="story-tag">Stroke Rehabilitation</div>
+
+<h3>Regaining Everyday Independence</h3>
+
+<p>A senior patient experienced weakness after a stroke and enrolled in a personalised rehabilitation programme focusing on balance, walking practice, strengthening exercises and functional movement.</p>
+
+<div class="story-result">
+
+Outcome: Improved mobility and increased confidence in performing routine daily activities through regular physiotherapy.
+
+</div>
+
+</div>
+
+<div class="story-card reveal">
+
+<div class="story-tag">Sciatica Rehabilitation</div>
+
+<h3>Walking Without Persistent Pain</h3>
+
+<p>A patient suffering from radiating leg pain and restricted movement followed a structured programme including manual therapy, posture correction and therapeutic exercises.</p>
+
+<div class="story-result">
+
+Outcome: Better walking tolerance and noticeable reduction in discomfort during everyday activities.
+
+</div>
+
+</div>
+
+<div class="story-card reveal">
+
+<div class="story-tag">Frozen Shoulder</div>
+
+<h3>Restoring Shoulder Movement</h3>
+
+<p>Targeted manual therapy and guided mobility exercises helped gradually improve flexibility and reduce stiffness over the rehabilitation period.</p>
+
+<div class="story-result">
+
+Outcome: Improved shoulder movement and greater ease in routine activities.
+
+</div>
+
+</div>
+
+<div class="story-card reveal">
+
+<div class="story-tag">Chronic Back Pain</div>
+
+<h3>Returning to Daily Activities</h3>
+
+<p>A personalised programme combining posture correction, strengthening exercises and supervised physiotherapy addressed long-standing lower back discomfort.</p>
+
+<div class="story-result">
+
+Outcome: Better functional movement and improved comfort during daily life.
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
     <!-- ==========================================================================
          EXPANDED FAQ ACCORDION (Added 2 new FAQs)
          ========================================================================== -->

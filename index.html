@@ -1643,33 +1643,73 @@ Open in Google Maps
                 </div>
 
                 <div class="contact-form">
-                    <h3 style="margin-bottom: 12px;">Request an Appointment</h3>
-                    <p style="margin-bottom: 32px; color: var(--clr-gray-600); font-size: 1.05rem;">Provide your details and our team will coordinate your consultation with Dr. Chandra.</p>
+                    <h3 style="margin-bottom: 12px;">Book an Appointment</h3>
+                    <p style="margin-bottom: 32px; color: var(--clr-gray-600); font-size: 1.05rem;">Fill in your details and send your appointment request directly via WhatsApp.</p>
                     
-                    <form onsubmit="event.preventDefault(); alert('Form connected. Ready for backend integration.');">
-                        <div class="form-group">
-                            <label>Patient Name *</label>
-                            <input type="text" class="form-control" placeholder="Enter full name" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Phone Number *</label>
-                            <input type="tel" class="form-control" placeholder="+91" required>
-                        </div>
-                        <div class="form-group">
-                            <label>Condition / Symptom *</label>
-                            <select class="form-control" required>
-                                <option value="" disabled selected>Select primary issue...</option>
-                                <option>Spine / Back / Neck Pain</option>
-                                <option>Neuro / Paralysis / Weakness</option>
-                                <option>Joints / Arthritis</option>
-                                <option>Post-Surgical / Trauma</option>
-                                <option>Other Specialized Care</option>
-                            </select>
-                        </div>
-                        <button type="submit" class="btn btn-primary" style="width: 100%; margin-top: 16px; padding: 20px;">
-                            Confirm Appointment Request
-                        </button>
-                    </form>
+                    <form onsubmit="sendWhatsApp(event)">
+
+    <div class="form-group">
+        <label>Patient Name *</label>
+        <input
+            id="patientName"
+            type="text"
+            class="form-control"
+            placeholder="Enter full name"
+            required>
+    </div>
+
+    <div class="form-group">
+        <label>Phone Number *</label>
+        <input
+            id="patientPhone"
+            type="tel"
+            class="form-control"
+            placeholder="+91"
+            required>
+    </div>
+
+    <div class="form-group">
+        <label>Condition / Symptom *</label>
+
+        <select
+            id="patientIssue"
+            class="form-control"
+            required>
+
+            <option value="" disabled selected>Select primary issue...</option>
+
+            <option>Back / Neck Pain</option>
+            <option>Slip Disc / Sciatica</option>
+            <option>Paralysis / Stroke Rehabilitation</option>
+            <option>Joint Pain / Arthritis</option>
+            <option>Frozen Shoulder</option>
+            <option>Sports Injury</option>
+            <option>Post Surgery Rehabilitation</option>
+            <option>Other</option>
+
+        </select>
+    </div>
+
+    <button
+        type="submit"
+        class="btn btn-primary"
+        style="width:100%;margin-top:18px;padding:20px;">
+
+        📲 Send on WhatsApp
+
+    </button>
+
+    <p style="margin-top:16px;
+              text-align:center;
+              font-size:.9rem;
+              color:var(--clr-gray-600);
+              line-height:1.6;">
+
+        We'll receive your appointment request instantly on WhatsApp.
+
+    </p>
+
+</form>
 
                     <!-- Google Maps Placeholder -->
 
@@ -1887,6 +1927,43 @@ menu.classList.remove("open");
 }
 
 });
+
+</script>
+    <script>
+
+function sendWhatsApp(event){
+
+event.preventDefault();
+
+const name=document.getElementById("patientName").value;
+
+const phone=document.getElementById("patientPhone").value;
+
+const issue=document.getElementById("patientIssue").value;
+
+const message=
+`*📅 Appointment Request*
+
+👤 Patient Name: ${name}
+
+📞 Contact Number: ${phone}
+
+🩺 Condition: ${issue}
+
+Hello Doctor,
+
+I would like to book a consultation at Magadh Pain & Paralysis Clinic.
+
+Kindly let me know the available appointment time.
+
+Thank you.`;
+
+window.open(
+"https://wa.me/919199726999?text="+encodeURIComponent(message),
+"_blank"
+);
+
+}
 
 </script>
 

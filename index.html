@@ -516,49 +516,97 @@
             .doc-image-wrapper { margin-bottom: 32px; }
             .hero-graphics { margin-top: 32px; }
         }
-        .call-float{
+/* ===== Premium Floating Buttons ===== */
+
+.floating-buttons{
 position:fixed;
-bottom:90px;
-right:20px;
-width:60px;
-height:60px;
-background:#007BFF;
-color:white;
+right:24px;
+bottom:24px;
+display:flex;
+flex-direction:column;
+gap:16px;
+z-index:9999;
+}
+
+.fab{
+width:64px;
+height:64px;
 border-radius:50%;
 display:flex;
 align-items:center;
 justify-content:center;
-font-size:28px;
 text-decoration:none;
-box-shadow:0 5px 15px rgba(0,0,0,.3);
-z-index:9999;
-transition:.3s;
+color:#fff;
+box-shadow:0 12px 30px rgba(0,0,0,.18);
+transition:.35s cubic-bezier(.34,1.56,.64,1);
+position:relative;
 }
 
-.call-float:hover{
-transform:scale(1.1);
+.fab:hover{
+transform:translateY(-5px) scale(1.08);
 }
-        .whatsapp-float{
-position:fixed;
-bottom:20px;
-right:20px;
-width:60px;
-height:60px;
+
+.fab svg{
+width:30px;
+height:30px;
+}
+
+.fab-call{
+background:#0B1B3D;
+}
+
+.fab-whatsapp{
 background:#25D366;
-color:white;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:30px;
-text-decoration:none;
-box-shadow:0 5px 15px rgba(0,0,0,.3);
-z-index:9999;
+}
+
+.fab::after{
+position:absolute;
+right:78px;
+background:#0B1B3D;
+color:#fff;
+padding:8px 14px;
+border-radius:10px;
+font-size:14px;
+font-family:'Inter',sans-serif;
+white-space:nowrap;
+opacity:0;
+pointer-events:none;
 transition:.3s;
 }
 
-.whatsapp-float:hover{
-transform:scale(1.1);
+.fab:hover::after{
+opacity:1;
+}
+
+.fab-call::after{
+content:"Call Now";
+}
+
+.fab-whatsapp::after{
+content:"WhatsApp";
+}
+
+@media(max-width:768px){
+
+.floating-buttons{
+right:16px;
+bottom:18px;
+}
+
+.fab{
+width:56px;
+height:56px;
+}
+
+.fab svg{
+width:26px;
+height:26px;
+}
+
+.fab::after{
+display:none;
+}
+
 }
     </style>
 </head>
@@ -1194,17 +1242,30 @@ transform:scale(1.1);
 
         });
     </script>
-    <a href="tel:+919199726999"
-class="call-float"
-aria-label="Call Now">
-📞
+    <div class="floating-buttons">
+
+<a href="tel:+919199726999"
+class="fab fab-call"
+aria-label="Call Clinic">
+
+<svg viewBox="0 0 24 24" fill="currentColor">
+<path d="M6.62 10.79a15.91 15.91 0 006.59 6.59l2.2-2.2a1 1 0 011.01-.24 11.36 11.36 0 003.57.57 1 1 0 011 1V21a1 1 0 01-1 1A17 17 0 013 4a1 1 0 011-1h3.5a1 1 0 011 1 11.36 11.36 0 00.57 3.57 1 1 0 01-.24 1.01z"/>
+</svg>
+
 </a>
-    <a href="https://wa.me/919199726999"
-class="whatsapp-float"
+
+<a href="https://wa.me/919199726999"
 target="_blank"
-aria-label="Chat on WhatsApp">
-💬
+class="fab fab-whatsapp"
+aria-label="WhatsApp">
+
+<svg viewBox="0 0 32 32" fill="currentColor">
+<path d="M16.04 3C8.84 3 3 8.75 3 15.84c0 2.52.74 4.95 2.13 7.03L3 29l6.33-2.06a13.2 13.2 0 006.71 1.83C23.2 28.77 29 23.02 29 15.93S23.2 3 16.04 3zm7.48 18.3c-.31.88-1.83 1.68-2.52 1.79-.65.1-1.46.15-2.36-.14-.54-.18-1.24-.4-2.14-.79-3.76-1.63-6.2-5.44-6.39-5.7-.18-.26-1.53-2.04-1.53-3.9s.98-2.77 1.33-3.15c.35-.39.76-.49 1.01-.49h.73c.23 0 .54-.09.84.63.31.75 1.06 2.59 1.15 2.78.09.19.15.42.03.68-.12.26-.18.42-.36.64-.18.22-.38.49-.54.66-.18.18-.37.38-.16.75.21.37.93 1.54 2 2.49 1.38 1.23 2.55 1.61 2.91 1.79.36.18.57.15.78-.09.21-.24.9-1.05 1.14-1.41.24-.36.48-.3.81-.18.33.12 2.08.98 2.44 1.16.36.18.6.27.69.42.09.15.09.87-.22 1.75z"/>
+</svg>
+
 </a>
+
+</div>
 </body>
 </html>
 

@@ -847,72 +847,148 @@ font-weight:600;
 color:#008fb4;
 
 }
+/* ==========================================
+   RECOVERY STORIES (Desktop + Mobile)
+========================================== */
+
+.story-grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
+gap:32px;
+margin-top:60px;
+}
+
+.story-card{
+background:linear-gradient(135deg,#0B1B3D,#173970);
+padding:40px;
+border-radius:24px;
+color:#fff;
+box-shadow:0 25px 60px rgba(11,27,61,.22);
+transition:.35s;
+position:relative;
+overflow:hidden;
+}
+
+.story-card:hover{
+transform:translateY(-8px);
+box-shadow:0 35px 70px rgba(0,180,216,.15);
+}
+
+.story-card::before{
+content:"";
+position:absolute;
+top:0;
+left:-100%;
+width:45%;
+height:100%;
+background:linear-gradient(
+90deg,
+transparent,
+rgba(255,255,255,.08),
+transparent);
+transform:skewX(-20deg);
+transition:.8s;
+}
+
+.story-card:hover::before{
+left:180%;
+}
+
+.story-tag{
+display:inline-flex;
+align-items:center;
+gap:8px;
+padding:8px 18px;
+background:rgba(255,255,255,.12);
+border-radius:40px;
+font-size:13px;
+font-weight:600;
+color:#CAF0F8;
+margin-bottom:18px;
+}
+
+.story-card h3{
+color:#fff;
+font-size:1.6rem;
+margin-bottom:18px;
+}
+
+.story-card p{
+color:rgba(255,255,255,.92);
+font-size:1.05rem;
+line-height:1.8;
+margin-bottom:0;
+}
+
+.story-result{
+margin-top:24px;
+padding-top:20px;
+border-top:1px solid rgba(255,255,255,.15);
+color:#F5A623;
+font-weight:600;
+line-height:1.7;
+}
+
+/* =========================
+   Mobile
+========================= */
+
+@media(max-width:768px){
 
 .story-grid{
 
-display:grid;
+grid-template-columns:1fr;
 
-grid-template-columns:repeat(auto-fit,minmax(420px,1fr));
+gap:22px;
 
-gap:30px;
-
-margin-top:60px;
+margin-top:40px;
 
 }
 
 .story-card{
 
-background:linear-gradient(135deg,#0B1B3D,#173970);
+padding:28px 22px;
 
-padding:40px;
-
-border-radius:24px;
-
-color:white;
-
-box-shadow:0 25px 60px rgba(11,27,61,.25);
-
-transition:.4s;
+border-radius:20px;
 
 }
 
-.story-card:hover{
+.story-card h3{
 
-transform:translateY(-8px);
+font-size:1.35rem;
+
+line-height:1.35;
 
 }
 
-.story-tag{
+.story-card p{
 
-display:inline-block;
+font-size:1rem;
 
-padding:8px 18px;
-
-background:rgba(255,255,255,.12);
-
-border-radius:50px;
-
-margin-bottom:18px;
-
-font-size:13px;
-
-color:#CAF0F8;
+line-height:1.7;
 
 }
 
 .story-result{
 
-margin-top:25px;
+font-size:1rem;
 
-padding-top:20px;
+margin-top:18px;
 
-border-top:1px solid rgba(255,255,255,.15);
-
-font-weight:600;
-
-color:#F5A623;
+padding-top:18px;
 
 }
+
+.story-tag{
+
+font-size:12px;
+
+padding:7px 14px;
+
+}
+
+}
+
     </style>
 </head>
 <body>
@@ -1355,7 +1431,7 @@ color:#F5A623;
 
 <div class="story-card reveal">
 
-<div class="story-tag">Stroke Rehabilitation</div>
+<div class="story-tag">🧠 Stroke Rehabilitation</div>
 
 <h3>Regaining Everyday Independence</h3>
 
@@ -1371,7 +1447,7 @@ Outcome: Improved mobility and increased confidence in performing routine daily 
 
 <div class="story-card reveal">
 
-<div class="story-tag">Sciatica Rehabilitation</div>
+<div class="story-tag">🦴 Sciatica Rehabilitation</div>
 
 <h3>Walking Without Persistent Pain</h3>
 
@@ -1387,8 +1463,7 @@ Outcome: Better walking tolerance and noticeable reduction in discomfort during 
 
 <div class="story-card reveal">
 
-<div class="story-tag">Frozen Shoulder</div>
-
+<div class="story-tag">💪 Frozen Shoulder</div>
 <h3>Restoring Shoulder Movement</h3>
 
 <p>Targeted manual therapy and guided mobility exercises helped gradually improve flexibility and reduce stiffness over the rehabilitation period.</p>
@@ -1403,7 +1478,7 @@ Outcome: Improved shoulder movement and greater ease in routine activities.
 
 <div class="story-card reveal">
 
-<div class="story-tag">Chronic Back Pain</div>
+<div class="story-tag">🩺 Chronic Back Pain</div>
 
 <h3>Returning to Daily Activities</h3>
 

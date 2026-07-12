@@ -516,6 +516,50 @@
             .doc-image-wrapper { margin-bottom: 32px; }
             .hero-graphics { margin-top: 32px; }
         }
+        .call-float{
+position:fixed;
+bottom:90px;
+right:20px;
+width:60px;
+height:60px;
+background:#007BFF;
+color:white;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:28px;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+z-index:9999;
+transition:.3s;
+}
+
+.call-float:hover{
+transform:scale(1.1);
+}
+        .whatsapp-float{
+position:fixed;
+bottom:20px;
+right:20px;
+width:60px;
+height:60px;
+background:#25D366;
+color:white;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:30px;
+text-decoration:none;
+box-shadow:0 5px 15px rgba(0,0,0,.3);
+z-index:9999;
+transition:.3s;
+}
+
+.whatsapp-float:hover{
+transform:scale(1.1);
+}
     </style>
 </head>
 <body>
@@ -1150,6 +1194,17 @@
 
         });
     </script>
+    <a href="tel:+919199726999"
+class="call-float"
+aria-label="Call Now">
+📞
+</a>
+    <a href="https://wa.me/919199726999"
+class="whatsapp-float"
+target="_blank"
+aria-label="Chat on WhatsApp">
+💬
+</a>
 </body>
 </html>
 

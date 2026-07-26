@@ -12,7 +12,7 @@
 </head>
 <body>
 
-    <header class="header">
+    <header class="header" id="header">
         <div class="container nav-inner">
             <a href="index.html" class="logo"><img src="images/newlogo.jpeg" alt="Logo" class="site-logo"><div class="logo-text">Magadh <span>Pain & Paralysis Clinic</span></div></a>
             <ul class="nav-links">
@@ -38,13 +38,14 @@
     </div>
     <div class="mobile-overlay" id="mobileOverlay"></div>
 
-    <section class="section" style="background: var(--clr-white);">
+    <section class="doc-section section">
         <div class="container grid-2">
-            <div style="position: relative; border-radius: var(--radius-xl); overflow: hidden; box-shadow: var(--shadow-card);">
+            <div class="doc-image-wrapper reveal">
                 <div style="background: url('images/dr.jpeg') center/cover; width: 100%; aspect-ratio: 4/5;"></div>
+                <div class="exp-badge"><span>20</span><span>Years<br>Experience</span></div>
             </div>
             
-            <div>
+            <div class="reveal delay-1">
                 <span class="tagline">Senior Physiotherapist</span>
                 <h2>Dr. Umesh Chandra</h2>
                 <h3 style="color: var(--clr-cyan); margin-bottom: 24px;">Formerly Senior Physio at NIMHANS, Bangalore.</h3>
@@ -55,18 +56,22 @@
                     "Every patient deserves an accurate diagnosis. We investigate the mechanics of your pain to provide a permanent, non-surgical solution."
                 </blockquote>
 
-                <ul style="list-style: none; display: grid; gap: 16px; margin-top: 24px;">
-                    <li style="font-weight: 600;">✓ Academic Excellence: B.Sc. (H), B.P.T. (R.G.U.H.S. Kar.), M.P.T. (Cardio.)</li>
-                    <li style="font-weight: 600;">✓ Professional Affiliations: MIAP, PGDYS. Registered Senior Physiotherapist.</li>
+                <ul class="credentials-list">
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <div><h4>Academic Excellence</h4><p>B.Sc. (H), B.P.T. (R.G.U.H.S. Kar.), M.P.T. (Cardio.)</p></div>
+                    </li>
+                    <li>
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                        <div><h4>Professional Affiliations</h4><p>MIAP, PGDYS. Registered Senior Physiotherapist.</p></div>
+                    </li>
                 </ul>
             </div>
         </div>
     </section>
 
     <footer class="footer">
-        <div class="container text-center">
-            <p>© <script>document.write(new Date().getFullYear())</script> Magadh Pain & Paralysis Clinic. All rights reserved.</p>
-        </div>
+        <div class="container text-center"><p>© <script>document.write(new Date().getFullYear())</script> Magadh Pain & Paralysis Clinic. All rights reserved.</p></div>
     </footer>
     <script src="main.js"></script>
 </body>

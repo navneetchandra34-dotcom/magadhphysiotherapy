@@ -4,12 +4,20 @@ document.addEventListener('DOMContentLoaded', () => {
     const overlay = document.getElementById('mobileOverlay');
 
     function toggleMenu() {
-        drawer.classList.toggle('open');
-        overlay.classList.toggle('open');
+        if(drawer) drawer.classList.toggle('open');
+        if(overlay) overlay.classList.toggle('open');
     }
 
     if(hamburger) hamburger.addEventListener('click', toggleMenu);
     if(overlay) overlay.addEventListener('click', toggleMenu);
+
+    const header = document.getElementById('header');
+    window.addEventListener('scroll', () => {
+        if (header) {
+            if (window.scrollY > 40) header.classList.add('scrolled');
+            else header.classList.remove('scrolled');
+        }
+    });
 
     const accordionHeaders = document.querySelectorAll('.accordion-header');
     accordionHeaders.forEach(header => {
@@ -29,6 +37,18 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     });
+
+    const observerOptions = { root: null, rootMargin: '0px 0px -50px 0px', threshold: 0.15 };
+    const observer = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target); 
+            }
+        });
+    }, observerOptions);
+
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
 
     const counters = document.querySelectorAll('.counter, .counter-suffix');
     let hasCounted = false;
@@ -61,12 +81,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (metricsGrid) counterObserver.observe(metricsGrid);
 
     const fab = document.getElementById("fabToggle");
-    const fabMenu = document.querySelector(".fab-menu");
-    if(fab) {
-        fab.addEventListener("click", () => fabMenu.classList.toggle("open"));
-        document.addEventListener("click", (e) => {
-            if(!fabMenu.contains(e.target)) fabMenu.classList.remove("open");
-        });
+    const menu = document.querySelector(".fab-menu");
+    if(fab && menu) {
+        fab.addEventListener("click", () => { menu.classList.toggle("open"); });
+        document.addEventListener("click", (e) => { if(!menu.contains(e.target)) { menu.classList.remove("open"); } });
     }
 });
 

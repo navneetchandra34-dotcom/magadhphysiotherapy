@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact & Location | Magadh Pain & Paralysis Clinic, Motihari</title>
+    <meta name="description" content="Book an appointment at Magadh Pain & Paralysis Clinic located behind M.J.K. Girls School, Near Town Thana, Motihari, Bihar. Call +91 9199726999.">
+    <link rel="icon" type="image/png" href="images/newlogo.jpeg">
+    <link rel="canonical" href="https://magadhphysiotherapy.in/contact.html">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Outfit:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+    <header class="header">
+        <div class="container nav-inner">
+            <a href="index.html" class="logo"><img src="images/newlogo.jpeg" alt="Logo" class="site-logo"><div class="logo-text">Magadh <span>Pain & Paralysis Clinic</span></div></a>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="specialties.html">Specialties</a></li>
+                <li><a href="doctor.html">Senior Specialist</a></li>
+                <li><a href="testimonials.html">Testimonials</a></li>
+                <li><a href="contact.html" class="active">Contact</a></li>
+            </ul>
+            <div class="nav-cta"><a href="contact.html" class="btn btn-primary" style="padding: 12px 28px; font-size: 1rem;">Book Appointment</a></div>
+            <button class="hamburger" id="hamburgerBtn"><span></span><span></span><span></span></button>
+        </div>
+    </header>
+
+    <div class="mobile-drawer" id="mobileDrawer">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="specialties.html">Specialties</a></li>
+            <li><a href="doctor.html">Senior Specialist</a></li>
+            <li><a href="testimonials.html">Testimonials</a></li>
+            <li><a href="contact.html">Contact</a></li>
+        </ul>
+    </div>
+    <div class="mobile-overlay" id="mobileOverlay"></div>
+
+    <section class="section">
+        <div class="container">
+            <div class="contact-wrap">
+                <div class="contact-info">
+                    <span class="tagline" style="color: var(--clr-cyan);">Visit Clinic</span>
+                    <h2 style="color: var(--clr-white); margin-bottom: 40px;">Get in Touch</h2>
+                    
+                    <div class="info-item">
+                        <div>
+                            <h4>Clinic Location</h4>
+                            <p>Behind M.J.K. Girls School, Near Town Thana, Before Petrol Pump <br> Motihari (Bihar) - 845401</p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div>
+                            <h4>Contact Numbers</h4>
+                            <p><a href="tel:9199726999">+91 91997 26999</a><br><a href="tel:06252239999">06252 239999</a></p>
+                        </div>
+                    </div>
+
+                    <div class="info-item">
+                        <div>
+                            <h4>Consultation Hours</h4>
+                            <p><strong>Every Day:</strong> 8:00 AM - 8:00 PM<br>प्रतिदिन (Open Daily). Prior appointment recommended.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-form">
+                    <h3 style="margin-bottom: 12px;">Book an Appointment</h3>
+                    <p style="margin-bottom: 32px;">Fill in your details and send your appointment request directly via WhatsApp.</p>
+                    
+                    <form onsubmit="sendWhatsApp(event)">
+                        <div class="form-group">
+                            <label>Patient Name *</label>
+                            <input id="patientName" type="text" class="form-control" placeholder="Enter full name" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Phone Number *</label>
+                            <input id="patientPhone" type="tel" class="form-control" placeholder="+91" required>
+                        </div>
+                        <div class="form-group">
+                            <label>Condition / Symptom *</label>
+                            <select id="patientIssue" class="form-control" required>
+                                <option value="" disabled selected>Select primary issue...</option>
+                                <option>Back / Neck Pain</option>
+                                <option>Slip Disc / Sciatica</option>
+                                <option>Paralysis / Stroke Rehabilitation</option>
+                                <option>Joint Pain / Arthritis</option>
+                                <option>Frozen Shoulder</option>
+                                <option>Sports Injury</option>
+                                <option>Post Surgery Rehabilitation</option>
+                                <option>Other</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width:100%;margin-top:18px;padding:20px;">📲 Send on WhatsApp</button>
+                    </form>
+
+                    <div class="map-container">
+                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3579.5!2d84.913977!3d26.649514!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zMjbCsDM4JzU4LjIiTiA4NMKwNTQnNTAuMyJF!5e0!3m2!1sen!2sin!4v1650000000000!5m2!1sen!2sin" width="100%" height="320" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="footer"><div class="container text-center"><p>© <script>document.write(new Date().getFullYear())</script> Magadh Pain & Paralysis Clinic. All rights reserved.</p></div></footer>
+    <script src="main.js"></script>
+</body>
+</html>

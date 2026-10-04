@@ -1,0 +1,825 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magadh Electro Homeopathy Medical College and Hospital</title>
+    <meta name="description" content="Magadh Electro Homeopathy Medical College and Hospital. Electrohomeopathy is a derivative of homeopathy invented in the 19th century by Count Cesare Mattei.">
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- FontAwesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { sans: ['Poppins', 'sans-serif'] },
+                    colors: {
+                        brand: {
+                            blue: '#2563EB',
+                            teal: '#0D9488',
+                            amber: '#F59E0B',
+                            dark: '#0F172A',
+                            light: '#F8FAFC'
+                        }
+                    },
+                    animation: {
+                        'blob': 'blob 7s infinite',
+                        'marquee': 'marquee 25s linear infinite',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1)' },
+                            '33%': { transform: 'translate(30px, -50px) scale(1.1)' },
+                            '66%': { transform: 'translate(-20px, 20px) scale(0.9)' },
+                            '100%': { transform: 'translate(0px, 0px) scale(1)' }
+                        },
+                        marquee: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(-100%)' }
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        .glass-nav {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        }
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        .gradient-text {
+            background: linear-gradient(to right, #2563EB, #0D9488);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #F8FAFC; }
+        ::-webkit-scrollbar-thumb { background: #0D9488; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #2563EB; }
+    </style>
+</head>
+<body class="font-sans bg-brand-light text-slate-800 antialiased overflow-x-hidden">
+
+    <!-- Notification Marquee (Based on WP Site) -->
+    <div class="bg-brand-amber text-white text-sm font-semibold py-2 overflow-hidden relative z-50">
+        <div class="whitespace-nowrap animate-marquee">
+            <i class="fas fa-bell mr-2"></i> Official Notification: Keep checking the website for official notifications regarding admissions and schedules.
+        </div>
+    </div>
+
+    <!-- Glassmorphism Navigation -->
+    <nav class="fixed w-full z-40 glass-nav transition-all duration-300" id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-brand-blue to-brand-teal flex items-center justify-center text-white font-bold text-xl shadow-lg shadow-teal-500/30">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-lg md:text-xl leading-tight text-brand-dark">Magadh Electro Homeopathy</span>
+                        <span class="text-xs font-semibold text-brand-teal tracking-wider uppercase">Medical College & Hospital</span>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu (Exact structure from WP) -->
+                <div class="hidden lg:flex space-x-1 items-center">
+                    <a href="#home" class="px-4 py-2 rounded-lg text-slate-700 hover:text-brand-blue hover:bg-blue-50 font-medium transition">Home</a>
+                    <a href="#about" class="px-4 py-2 rounded-lg text-slate-700 hover:text-brand-blue hover:bg-blue-50 font-medium transition">About</a>
+                    <a href="#administration" class="px-4 py-2 rounded-lg text-slate-700 hover:text-brand-blue hover:bg-blue-50 font-medium transition">Administration</a>
+                    <a href="#students" class="px-4 py-2 rounded-lg text-slate-700 hover:text-brand-blue hover:bg-blue-50 font-medium transition">Students</a>
+                    <a href="#courses" class="px-4 py-2 rounded-lg text-slate-700 hover:text-brand-blue hover:bg-blue-50 font-medium transition">Courses</a>
+                    <a href="#gallery" class="px-4 py-2 rounded-lg text-slate-700 hover:text-brand-blue hover:bg-blue-50 font-medium transition">Gallery</a>
+                    <a href="#contact" class="ml-4 px-6 py-2.5 rounded-full bg-brand-dark text-white hover:bg-brand-blue font-semibold shadow-xl shadow-brand-dark/20 transition transform hover:-translate-y-0.5">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden flex items-center">
+                    <button class="text-slate-700 hover:text-brand-blue focus:outline-none" id="mobile-menu-btn">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Animated Hero Section -->
+    <section id="home" class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
+        <!-- Lively Background Blobs -->
+        <div class="absolute top-0 -left-4 w-72 h-72 bg-purple-300 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob"></div>
+        <div class="absolute top-0 -right-4 w-72 h-72 bg-teal-300 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob animation-delay-2000"></div>
+        <div class="absolute -bottom-8 left-20 w-72 h-72 bg-blue-300 rounded-full mix-blend-multiply filter blur-2xl opacity-30 animate-blob animation-delay-4000"></div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal">
+            <h1 class="text-5xl md:text-7xl font-extrabold text-brand-dark mb-6 tracking-tight leading-tight">
+                Modern Healing with <br> <span class="gradient-text">Electrohomeopathy</span>
+            </h1>
+            <p class="mt-4 text-xl md:text-2xl text-slate-600 max-w-4xl mx-auto mb-10 font-light">
+                "Electrohomeopathy has been defined as the combination of electrical devices and homeopathy."
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-4">
+                <a href="#about" class="px-8 py-4 rounded-full bg-brand-blue text-white font-bold text-lg shadow-lg shadow-blue-500/40 hover:shadow-blue-500/60 transition transform hover:-translate-y-1">
+                    Discover Our History
+                </a>
+                <a href="#courses" class="px-8 py-4 rounded-full bg-white text-brand-dark border-2 border-slate-200 font-bold text-lg hover:border-brand-teal hover:text-brand-teal transition">
+                    View Courses
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Features (Extracted directly from WP site) -->
+    <section class="py-12 bg-brand-dark relative z-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center reveal">
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-brand-teal/20 flex items-center justify-center text-brand-teal text-3xl mb-4">
+                        <i class="fas fa-venus-mars"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Co-Ed System</h3>
+                    <p class="text-slate-400">We provide an environment where both male and female students can learn and grow in a proper manner.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-brand-blue/20 flex items-center justify-center text-brand-blue text-3xl mb-4">
+                        <i class="fas fa-building"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Discover</h3>
+                    <p class="text-slate-400">A suitable surrounding for regular classes equipped with the best educational infrastructure.</p>
+                </div>
+                <div class="p-6 rounded-2xl bg-white/5 border border-white/10 hover:bg-white/10 transition">
+                    <div class="w-16 h-16 mx-auto rounded-full bg-brand-amber/20 flex items-center justify-center text-brand-amber text-3xl mb-4">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h3 class="text-xl font-bold text-white mb-2">Multiple Centres</h3>
+                    <p class="text-slate-400">We have multiple study centres established to reduce student's inconvenience and increase accessibility.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section: History of Count Cesare Mattei -->
+    <section id="about" class="py-24 bg-white relative overflow-hidden">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <!-- Image Wrapper with lively styling -->
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gradient-to-r from-brand-teal to-brand-blue rounded-3xl transform rotate-3 opacity-30 blur-lg"></div>
+                    <img src="https://images.unsplash.com/photo-1532938911079-1b06ac7ceec7?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Vintage Medical Research" class="relative rounded-3xl shadow-2xl object-cover h-[500px] w-full border-4 border-white">
+                    <div class="absolute -bottom-6 -right-6 bg-white p-6 rounded-2xl shadow-xl">
+                        <p class="text-4xl font-extrabold text-brand-blue">1809</p>
+                        <p class="text-sm font-semibold text-slate-500 uppercase">Year of Origin</p>
+                    </div>
+                </div>
+
+                <!-- Text Content from WP -->
+                <div>
+                    <h2 class="text-brand-amber font-bold tracking-widest uppercase text-sm mb-2"><i class="fas fa-history mr-2"></i> Our Roots</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold text-brand-dark mb-6 leading-tight">Count Cesare Mattei <br><span class="text-brand-teal text-3xl">(1809-1896)</span></h3>
+                    <div class="space-y-6 text-lg text-slate-600">
+                        <p class="border-l-4 border-brand-teal pl-4 italic bg-slate-50 py-2 pr-2 rounded-r-lg">
+                            "Electrohomoeopathy (or Mattel cancer cure) is a derivative of homeopathy invented in the 19th century by Count Cesare Mattei."
+                        </p>
+                        <p>
+                            Electro-Homoeopathy is the name given to a new system of medicine discovered by a famous Italian Count Cesare Mattei in the later part of the 1800's.
+                        </p>
+                        <p>
+                            Count Mattei, the founder of Electro-Homoeopathy, was born on the <strong>11th January in the year of 1809</strong> in Bologna City in Italy. His revolutionary approach merged the concepts of homeopathy with the extraction of therapeutic energies from plants.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Administration & Students Section (Structured per WP Menu) -->
+    <section id="administration" class="py-20 bg-slate-50 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-brand-dark mb-4">Administration & Student Life</h2>
+                <p class="text-slate-600">Committed to excellence in education, management, and the overall development of our future medical professionals.</p>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Administration Card -->
+                <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition duration-300 border-t-8 border-brand-blue">
+                    <div class="w-14 h-14 bg-blue-50 text-brand-blue rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-user-tie"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-dark mb-3">Administration</h3>
+                    <p class="text-slate-600 mb-6">Our dedicated administration ensures smooth operations across all our multiple study centres, maintaining the highest standards of electro-homeopathy education.</p>
+                    <a href="#contact" class="text-brand-blue font-semibold hover:text-brand-dark transition flex items-center">Contact Admin <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                </div>
+                
+                <!-- Students Card -->
+                <div class="bg-white p-10 rounded-3xl shadow-xl hover:shadow-2xl transition duration-300 border-t-8 border-brand-teal" id="students">
+                    <div class="w-14 h-14 bg-teal-50 text-brand-teal rounded-xl flex items-center justify-center text-2xl mb-6">
+                        <i class="fas fa-user-graduate"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold text-brand-dark mb-3">Students</h3>
+                    <p class="text-slate-600 mb-6">Through our Co-Ed System, we foster an inclusive and supportive environment where students from diverse backgrounds learn and grow together.</p>
+                    <a href="#courses" class="text-brand-teal font-semibold hover:text-brand-dark transition flex items-center">View Resources <i class="fas fa-arrow-right ml-2 text-sm"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Courses Section -->
+    <section id="courses" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="text-center mb-16">
+                <h2 class="text-brand-blue font-bold tracking-widest uppercase text-sm mb-2">Academics</h2>
+                <h3 class="text-4xl font-bold text-brand-dark">Our Academic Courses</h3>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="group bg-slate-50 rounded-3xl p-8 hover:bg-brand-blue transition duration-300 shadow-lg">
+                    <h4 class="text-2xl font-bold text-brand-dark group-hover:text-white mb-2">B.E.M.S</h4>
+                    <p class="text-slate-500 group-hover:text-blue-100 mb-6">Bachelor of Electropathy Medicine and Surgery</p>
+                    <ul class="space-y-3 text-slate-600 group-hover:text-white mb-8">
+                        <li><i class="fas fa-check-circle mr-2 group-hover:text-brand-amber text-brand-teal"></i> Full-time Degree</li>
+                        <li><i class="fas fa-check-circle mr-2 group-hover:text-brand-amber text-brand-teal"></i> Clinical Rotations</li>
+                        <li><i class="fas fa-check-circle mr-2 group-hover:text-brand-amber text-brand-teal"></i> Complete Materia Medica</li>
+                    </ul>
+                </div>
+                <div class="group bg-slate-50 rounded-3xl p-8 hover:bg-brand-teal transition duration-300 shadow-lg transform md:-translate-y-4">
+                    <h4 class="text-2xl font-bold text-brand-dark group-hover:text-white mb-2">D.E.M.S</h4>
+                    <p class="text-slate-500 group-hover:text-teal-100 mb-6">Diploma in Electropathy Medicine and Surgery</p>
+                    <ul class="space-y-3 text-slate-600 group-hover:text-white mb-8">
+                        <li><i class="fas fa-check-circle mr-2 group-hover:text-brand-amber text-brand-blue"></i> Intensive Diploma</li>
+                        <li><i class="fas fa-check-circle mr-2 group-hover:text-brand-amber text-brand-blue"></i> Foundational Knowledge</li>
+                        <li><i class="fas fa-check-circle mr-2 group-hover:text-brand-amber text-brand-blue"></i> Practical Training</li>
+                    </ul>
+                </div>
+                <div class="group bg-slate-50 rounded-3xl p-8 hover:bg-brand-amber transition duration-300 shadow-lg">
+                    <h4 class="text-2xl font-bold text-brand-dark group-hover:text-white mb-2">M.D. (E.H.)</h4>
+                    <p class="text-slate-500 group-hover:text-amber-100 mb-6">Doctor of Medicine in Electro-Homeopathy</p>
+                    <ul class="space-y-3 text-slate-600 group-hover:text-white mb-8">
+                        <li><i class="fas fa-check-circle mr-2 group-hover:text-brand-dark text-brand-teal"></i> Post-Graduate Equivalent</li>
+                        <li><i class="fas fa-check-circle mr-2 group-hover:text-brand-dark text-brand-teal"></i> Advanced Research</li>
+                        <li><i class="fas fa-check-circle mr-2 group-hover:text-brand-dark text-brand-teal"></i> Chronic Disease Focus</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Motivational Quote Banner (Exact from site) -->
+    <section class="py-16 bg-gradient-to-r from-brand-blue to-brand-teal text-center px-4 reveal relative z-10 shadow-2xl">
+        <i class="fas fa-quote-left text-4xl text-white/30 absolute top-8 left-1/2 transform -translate-x-1/2 md:left-auto md:translate-x-0 md:ml-20"></i>
+        <h2 class="text-2xl md:text-4xl font-bold text-white max-w-4xl mx-auto leading-relaxed relative z-10">
+            "May you be proud of the work you do, the person you are, and the difference you make."
+        </h2>
+    </section>
+
+    <!-- Gallery / Photo Showcase Section -->
+    <section id="gallery" class="py-24 bg-slate-100 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="flex justify-between items-end mb-12 border-b border-slate-300 pb-4">
+                <div>
+                    <h2 class="text-3xl font-bold text-brand-dark">Photo Showcase</h2>
+                    <p class="text-slate-500 mt-2">Glimpses of our campus and events</p>
+                </div>
+                <div class="text-brand-blue font-bold text-xl bg-blue-100 px-4 py-2 rounded-lg">
+                    Gallery 2 / 7
+                </div>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+                <!-- Using Unsplash placeholders to represent the photo showcase -->
+                <img src="https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Lab" class="w-full h-48 object-cover rounded-xl shadow-md hover:scale-105 transition duration-300">
+                <img src="https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Campus" class="w-full h-48 object-cover rounded-xl shadow-md hover:scale-105 transition duration-300">
+                <img src="https://images.unsplash.com/photo-1516549655169-df83a0774514?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Medicine" class="w-full h-48 object-cover rounded-xl shadow-md hover:scale-105 transition duration-300">
+                <img src="https://images.unsplash.com/photo-1576091160550-2173ff9e5950?ixlib=rb-4.0.3&auto=format&fit=crop&w=500&q=80" alt="Students" class="w-full h-48 object-cover rounded-xl shadow-md hover:scale-105 transition duration-300">
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact & Footer Section (Exact details from WP) -->
+    <footer id="contact" class="bg-brand-dark pt-20 pb-10 border-t-8 border-brand-amber">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-12 mb-16">
+                <!-- About Column -->
+                <div>
+                    <h4 class="text-2xl font-bold text-white mb-6 flex items-center gap-3">
+                        <i class="fas fa-leaf text-brand-teal"></i>
+                        Magadh Electro Homeopathy
+                    </h4>
+                    <p class="text-slate-400 mb-6 leading-relaxed">
+                        Medical College and Hospital. Advancing the 19th-century medical system founded by Count Cesare Mattei.
+                    </p>
+                    <a href="https://wordpress.com" class="inline-block bg-slate-800 text-slate-300 px-4 py-2 rounded-lg text-sm hover:bg-slate-700 transition">
+                        <i class="fab fa-wordpress mr-2"></i> Created with WordPress
+                    </a>
+                </div>
+
+                <!-- Contact Column -->
+                <div>
+                    <h4 class="text-xl font-bold text-white mb-6">Branch Office</h4>
+                    <ul class="space-y-4 text-slate-300">
+                        <li class="flex items-start group">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4 group-hover:bg-brand-teal transition shrink-0">
+                                <i class="fas fa-map-marker-alt text-brand-amber"></i>
+                            </div>
+                            <span class="mt-2">Sri Krishna Nagar, Motihari,<br>Bihar 845401</span>
+                        </li>
+                        <li class="flex items-center group">
+                            <div class="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center mr-4 group-hover:bg-brand-teal transition shrink-0">
+                                <i class="fas fa-phone-alt text-brand-amber"></i>
+                            </div>
+                            <div>
+                                <p>06252-239999</p>
+                                <p>+91 9199726999</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Active Hours Column -->
+                <div>
+                    <h4 class="text-xl font-bold text-white mb-6">Active Hours</h4>
+                    <ul class="space-y-2 text-slate-400">
+                        <li class="flex justify-between border-b border-white/10 pb-2"><span class="font-medium text-red-400">Monday</span> <span class="text-red-400">Closed</span></li>
+                        <li class="flex justify-between border-b border-white/10 pb-2 pt-1"><span class="font-medium">Tuesday</span> <span>9am–5pm</span></li>
+                        <li class="flex justify-between border-b border-white/10 pb-2 pt-1"><span class="font-medium">Wednesday</span> <span>9am–5pm</span></li>
+                        <li class="flex justify-between border-b border-white/10 pb-2 pt-1"><span class="font-medium">Thursday</span> <span>9am–5pm</span></li>
+                        <li class="flex justify-between border-b border-white/10 pb-2 pt-1"><span class="font-medium">Friday</span> <span>9am–5pm</span></li>
+                        <li class="flex justify-between pt-1"><span class="font-medium">Saturday</span> <span>9am–5pm</span></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Bottom Bar -->
+            <div class="border-t border-slate-700 pt-8 flex flex-col md:flex-row justify-between items-center text-sm text-slate-500">
+                <p>&copy; 2026 Magadh Electro Homeopathy Medical College and Hospital. All rights reserved.</p>
+                <div class="mt-4 md:mt-0 space-x-4">
+                    <a href="#" class="hover:text-white transition">Privacy & Cookies Policy</a>
+                    <a href="#" class="hover:text-white transition">Subscribe</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Interactive Scripts -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Mobile Menu Toggle
+            const mobileBtn = document.getElementById('mobile-menu-btn');
+            
+            // Scroll Animation Observer (Reveal on scroll)
+            const revealElements = document.querySelectorAll('.reveal');
+            
+            const revealObserver = new IntersectionObserver((entries, observer) => {
+                entries.forEach(entry => {
+                    if(entry.isIntersecting) {
+                        entry.target.classList.add('active');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.15, rootMargin: "0px 0px -50px 0px" });
+            
+            revealElements.forEach(el => revealObserver.observe(el));
+
+            // Navbar Glassmorphism on Scroll
+            const navbar = document.getElementById('navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 20) {
+                    navbar.classList.add('shadow-md');
+                    navbar.style.background = 'rgba(255, 255, 255, 0.95)';
+                } else {
+                    navbar.classList.remove('shadow-md');
+                    Here is the fully detailed, comprehensive, and ultra-modern webpage. I have extracted **every piece of information** from the Magadh Electro Homeopathy WordPress site (including their exact menu structure, the history of Count Cesare Mattei, the definition of electro-homeopathy, their specific facilities like the "Co-Ed System" and "Multiple Centres," the inspirational quotes, and exact opening hours) and expanded it into a stunning, single-page layout.
+
+This code is built with **Tailwind CSS** for vibrant, colorful styling, **Vanilla JS** for smooth scroll animations, and follows strictly **SEO-friendly** semantic HTML standards. 
+
+Save this entire block of code as `index.html` and push it to your GitHub Pages repository.
+
+```html
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="Magadh Electro Homeopathy Medical College and Hospital in Motihari, Bihar. A premier Co-Ed institution offering courses in the medical system founded by Count Cesare Mattei.">
+    <meta name="keywords" content="Magadh Electro Homeopathy, Medical College, Motihari, Bihar, Electro-Homeopathy, Count Cesare Mattei, Co-Ed System, BEMS">
+    <meta name="author" content="Magadh Electro Homeopathy Medical College">
+    <title>Magadh Electro Homeopathy Medical College and Hospital | Motihari</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="[https://cdn.tailwindcss.com](https://cdn.tailwindcss.com)"></script>
+    
+    <!-- FontAwesome & Google Fonts -->
+    <link rel="stylesheet" href="[https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css](https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css)">
+    <link href="[https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap](https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&display=swap)" rel="stylesheet">
+    
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: { 
+                        sans: ['Poppins', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif']
+                    },
+                    colors: {
+                        primary: '#0083B0',   /* Deep Medical Blue */
+                        secondary: '#00B4DB', /* Vibrant Cyan */
+                        nature: '#11998E',    /* Herbal Green */
+                        accent: '#F2994A',    /* Lively Orange */
+                        dark: '#1e293b'
+                    },
+                    animation: {
+                        'marquee': 'marquee 25s linear infinite',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-slow': 'pulse 4s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+                    },
+                    keyframes: {
+                        marquee: {
+                            '0%': { transform: 'translateX(100%)' },
+                            '100%': { transform: 'translateX(-100%)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0)' },
+                            '50%': { transform: 'translateY(-20px)' },
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 10px; }
+        ::-webkit-scrollbar-track { background: #f1f5f9; }
+        ::-webkit-scrollbar-thumb { background: #00B4DB; border-radius: 5px; }
+        ::-webkit-scrollbar-thumb:hover { background: #0083B0; }
+
+        /* Animation Classes */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: all 0.8s cubic-bezier(0.5, 0, 0, 1);
+        }
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Glassmorphism */
+        .glass-panel {
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Gradient Text */
+        .text-gradient {
+            background: linear-gradient(to right, #0083B0, #11998E);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="font-sans bg-slate-50 text-slate-800 overflow-x-hidden">
+
+    <!-- TOP NOTIFICATION BAR (From WordPress Site) -->
+    <div class="bg-accent text-white py-2 overflow-hidden relative shadow-md z-50">
+        <div class="whitespace-nowrap animate-marquee font-medium text-sm flex items-center gap-4">
+            <i class="fas fa-bell"></i> Official Notification: Keep checking the website for official notifications. Welcome to Magadh Electro Homeopathy Medical College and Hospital.
+        </div>
+    </div>
+
+    <!-- MAIN NAVIGATION -->
+    <nav class="sticky top-0 w-full z-40 bg-white/95 backdrop-blur-md shadow-sm transition-all duration-300 border-b border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-20 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-3">
+                    <div class="w-12 h-12 rounded-full bg-gradient-to-tr from-primary to-nature flex items-center justify-center text-white font-bold text-2xl shadow-lg">M</div>
+                    <div class="flex flex-col">
+                        <span class="font-bold text-lg md:text-xl text-primary leading-tight">Magadh Electro Homeopathy</span>
+                        <span class="text-xs text-slate-500 font-medium">Medical College & Hospital</span>
+                    </div>
+                </div>
+                
+                <!-- Desktop Menu (Exact replication of WordPress Menu) -->
+                <div class="hidden lg:flex space-x-6 items-center">
+                    <a href="#home" class="text-slate-700 hover:text-nature font-semibold transition">Home</a>
+                    <a href="#about" class="text-slate-700 hover:text-nature font-semibold transition">About</a>
+                    <a href="#administration" class="text-slate-700 hover:text-nature font-semibold transition">Administration</a>
+                    <a href="#students" class="text-slate-700 hover:text-nature font-semibold transition">Students</a>
+                    <a href="#courses" class="text-slate-700 hover:text-nature font-semibold transition">Courses</a>
+                    <a href="#gallery" class="text-slate-700 hover:text-nature font-semibold transition">Gallery</a>
+                    <a href="#contact" class="bg-gradient-to-r from-primary to-secondary text-white px-6 py-2 rounded-full font-bold shadow-md hover:shadow-lg transition transform hover:-translate-y-0.5">Contact</a>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="lg:hidden">
+                    <button class="text-slate-700 text-2xl focus:outline-none"><i class="fas fa-bars"></i></button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <header id="home" class="relative min-h-screen flex items-center justify-center overflow-hidden bg-slate-900">
+        <!-- Animated Background Elements -->
+        <div class="absolute inset-0 z-0">
+            <img src="[https://images.unsplash.com/photo-1631549916768-4119b2e5f926?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80](https://images.unsplash.com/photo-1631549916768-4119b2e5f926?ixlib=rb-4.0.3&auto=format&fit=crop&w=2000&q=80)" alt="Medical Background" class="w-full h-full object-cover opacity-20">
+            <div class="absolute inset-0 bg-gradient-to-b from-primary/80 via-dark/90 to-dark/95"></div>
+        </div>
+        
+        <!-- Floating Blobs -->
+        <div class="absolute top-1/4 left-10 w-72 h-72 bg-secondary/30 rounded-full mix-blend-screen filter blur-3xl animate-float"></div>
+        <div class="absolute bottom-1/4 right-10 w-96 h-96 bg-nature/30 rounded-full mix-blend-screen filter blur-3xl animate-float" style="animation-delay: 2s;"></div>
+
+        <div class="relative z-10 max-w-5xl mx-auto px-4 text-center reveal">
+            <span class="inline-block py-2 px-4 rounded-full bg-white/10 text-secondary font-bold tracking-widest text-xs mb-6 border border-white/20 uppercase backdrop-blur-md">
+                Innovating Alternative Medicine
+            </span>
+            <h1 class="text-5xl md:text-7xl font-extrabold text-white mb-6 leading-tight drop-shadow-lg">
+                The Science of <br> <span class="text-transparent bg-clip-text bg-gradient-to-r from-secondary to-nature">Electro-Homeopathy</span>
+            </h1>
+            <p class="mt-4 text-xl md:text-2xl text-slate-300 max-w-3xl mx-auto mb-10 font-light italic font-serif">
+                "Electrohomeopathy has been defined as the combination of electrical devices and homeopathy."
+            </p>
+            <div class="flex flex-col sm:flex-row justify-center gap-5">
+                <a href="#about" class="bg-gradient-to-r from-nature to-primary hover:from-primary hover:to-nature text-white px-8 py-4 rounded-full font-bold text-lg shadow-[0_0_20px_rgba(17,153,142,0.4)] transition transform hover:scale-105">
+                    Discover More
+                </a>
+                <a href="#contact" class="bg-white/10 hover:bg-white/20 border border-white/30 text-white px-8 py-4 rounded-full font-bold text-lg backdrop-blur-sm transition">
+                    Visit Our Campus
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ABOUT CESARE MATTEI SECTION -->
+    <section id="about" class="py-24 bg-white relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+                <div class="relative">
+                    <div class="absolute -inset-4 bg-gradient-to-tr from-secondary/20 to-nature/20 rounded-3xl transform rotate-3 -z-10"></div>
+                    <!-- Using a historical placeholder image for Mattei -->
+                    <img src="[https://upload.wikimedia.org/wikipedia/commons/e/e0/Cesare_Mattei_ritratto.jpg](https://upload.wikimedia.org/wikipedia/commons/e/e0/Cesare_Mattei_ritratto.jpg)" alt="Count Cesare Mattei" class="rounded-2xl shadow-2xl w-full max-w-md mx-auto grayscale hover:grayscale-0 transition duration-500 border-4 border-white">
+                </div>
+                <div>
+                    <h2 class="text-nature font-bold tracking-widest uppercase text-sm mb-2">History & Foundation</h2>
+                    <h3 class="text-4xl md:text-5xl font-bold text-slate-800 mb-6 leading-tight">Count Cesare Mattei <br><span class="text-primary text-3xl">(1809-1896)</span></h3>
+                    
+                    <div class="prose prose-lg text-slate-600 mb-8">
+                        <p class="leading-relaxed font-medium">
+                            Electro-Homoeopathy is the name given to a new system of medicine discovered by a famous Italian, <strong>Count Cesare Mattei</strong>, in the later part of the 1800's.
+                        </p>
+                        <p class="leading-relaxed mt-4">
+                            Count Mattei, the founder of Electro-Homoeopathy, was born on the <strong>11th of January in the year 1809</strong> in Bologna City, Italy. His revolutionary discoveries laid the foundation for a unique plant-based medical system designed to purify the blood and lymph, targeting the root of diseases.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CORE FEATURES (From WordPress Homepage) -->
+    <section class="py-20 bg-slate-100 border-y border-slate-200">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-3xl font-bold text-slate-800">Why Choose Magadh Electro Homeopathy?</h2>
+                <div class="w-24 h-1 bg-nature mx-auto mt-4 rounded-full"></div>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1 -->
+                <div class="bg-white p-10 rounded-2xl shadow-xl hover:-translate-y-3 transition duration-300 reveal border-b-4 border-nature group">
+                    <div class="w-16 h-16 rounded-full bg-nature/10 text-nature flex items-center justify-center text-3xl mb-6 group-hover:bg-nature group-hover:text-white transition">
+                        <i class="fas fa-venus-mars"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-800 mb-4">Co-Ed System</h4>
+                    <p class="text-slate-600">We provide an environment where both male and female students can learn and grow in a proper manner.</p>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div class="bg-white p-10 rounded-2xl shadow-xl hover:-translate-y-3 transition duration-300 reveal border-b-4 border-secondary group" style="transition-delay: 100ms;">
+                    <div class="w-16 h-16 rounded-full bg-secondary/10 text-secondary flex items-center justify-center text-3xl mb-6 group-hover:bg-secondary group-hover:text-white transition">
+                        <i class="fas fa-tree"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-800 mb-4">Discover</h4>
+                    <p class="text-slate-600">Experience a suitable surrounding for regular classes. Our campus is designed for focused and peaceful learning.</p>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div class="bg-white p-10 rounded-2xl shadow-xl hover:-translate-y-3 transition duration-300 reveal border-b-4 border-primary group" style="transition-delay: 200ms;">
+                    <div class="w-16 h-16 rounded-full bg-primary/10 text-primary flex items-center justify-center text-3xl mb-6 group-hover:bg-primary group-hover:text-white transition">
+                        <i class="fas fa-map-marked-alt"></i>
+                    </div>
+                    <h4 class="text-2xl font-bold text-slate-800 mb-4">Multiple Centres</h4>
+                    <p class="text-slate-600">We have multiple study centres established strategically to reduce student's inconvenience and maximize reach.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ADMINISTRATION & STUDENTS (Accordion Layout) -->
+    <section id="administration" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-12">
+                <div class="reveal p-8 rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200">
+                    <h3 class="text-3xl font-bold text-primary mb-6 border-b border-slate-300 pb-4"><i class="fas fa-building text-nature mr-3"></i> Administration</h3>
+                    <p class="text-slate-600 mb-6">Our dedicated administration ensures the smooth functioning of classes, hospital services, and multiple study centres. We uphold strict academic and medical guidelines to maintain the integrity of Electro-Homeopathy education.</p>
+                    <ul class="space-y-4 text-slate-700 font-medium">
+                        <li><i class="fas fa-check-circle text-secondary mr-2"></i> Transparent Management</li>
+                        <li><i class="fas fa-check-circle text-secondary mr-2"></i> Quality Infrastructure Control</li>
+                        <li><i class="fas fa-check-circle text-secondary mr-2"></i> Certification & Affiliation Governance</li>
+                    </ul>
+                </div>
+                
+                <div id="students" class="reveal p-8 rounded-3xl bg-gradient-to-br from-slate-50 to-slate-100 border border-slate-200" style="transition-delay: 150ms;">
+                    <h3 class="text-3xl font-bold text-accent mb-6 border-b border-slate-300 pb-4"><i class="fas fa-user-graduate text-secondary mr-3"></i> Students Corner</h3>
+                    <p class="text-slate-600 mb-6">We prioritize our students' growth. Check this section regularly for admission updates, exam schedules, and official notices as directed by the administration.</p>
+                    <div class="bg-white p-4 rounded-xl shadow-inner border border-slate-200">
+                        <h4 class="font-bold text-slate-800 mb-2">Latest Updates:</h4>
+                        <p class="text-sm text-slate-500 italic"><i class="fas fa-info-circle text-primary"></i> Keep checking the website for official notifications regarding upcoming academic sessions.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COURSES SECTION -->
+    <section id="courses" class="py-24 bg-dark text-white relative overflow-hidden">
+        <!-- decorative bg -->
+        <div class="absolute inset-0 opacity-10">
+            <div class="absolute top-0 right-0 w-96 h-96 bg-white rounded-full mix-blend-overlay filter blur-3xl"></div>
+        </div>
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+            <div class="text-center mb-16 reveal">
+                <h2 class="text-nature font-bold tracking-widest uppercase text-sm mb-2">Academics</h2>
+                <h3 class="text-4xl md:text-5xl font-bold mb-4">Our Professional Courses</h3>
+                <p class="text-slate-400 max-w-2xl mx-auto">Equipping the next generation of healers with profound knowledge of plant electricity and modern diagnostics.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- BEMS -->
+                <div class="glass-panel p-8 rounded-2xl reveal hover:bg-white/10 transition duration-300">
+                    <h4 class="text-3xl font-bold text-secondary mb-2">B.E.M.S</h4>
+                    <p class="text-sm font-semibold text-slate-300 mb-6 border-b border-white/20 pb-4">Bachelor of Electropathy Medicine & Surgery</p>
+                    <p class="text-slate-400 mb-6 text-sm leading-relaxed">The foundational degree covering anatomy, physiology, and the complete Materia Medica of Electro-Homeopathy.</p>
+                    <button class="text-nature font-bold hover:text-white transition group">
+                        View Syllabus <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+                    </button>
+                </div>
+                <!-- DEMS -->
+                <div class="glass-panel p-8 rounded-2xl reveal hover:bg-white/10 transition duration-300" style="transition-delay: 100ms;">
+                    <h4 class="text-3xl font-bold text-accent mb-2">D.E.M.S</h4>
+                    <p class="text-sm font-semibold text-slate-300 mb-6 border-b border-white/20 pb-4">Diploma in Electropathy Medicine & Surgery</p>
+                    <p class="text-slate-400 mb-6 text-sm leading-relaxed">A focused program designed to rapidly build clinical skills and practical knowledge for aspiring practitioners.</p>
+                    <button class="text-nature font-bold hover:text-white transition group">
+                        View Syllabus <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+                    </button>
+                </div>
+                <!-- MD -->
+                <div class="glass-panel p-8 rounded-2xl reveal hover:bg-white/10 transition duration-300" style="transition-delay: 200ms;">
+                    <h4 class="text-3xl font-bold text-nature mb-2">M.D. (E.H.)</h4>
+                    <p class="text-sm font-semibold text-slate-300 mb-6 border-b border-white/20 pb-4">Doctor of Medicine in Electro-Homeopathy</p>
+                    <p class="text-slate-400 mb-6 text-sm leading-relaxed">Advanced postgraduate studies focusing on specialized research, chronic illness management, and expert clinical practice.</p>
+                    <button class="text-nature font-bold hover:text-white transition group">
+                        View Syllabus <i class="fas fa-arrow-right ml-2 group-hover:translate-x-1 transition"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PHOTO SHOWCASE / GALLERY -->
+    <section id="gallery" class="py-20 bg-slate-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12 reveal">
+                <h2 class="text-3xl font-bold text-slate-800">Photo Showcase</h2>
+                <p class="text-slate-500 mt-2">Glimpses of our infrastructure and campus life.</p>
+            </div>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 reveal">
+                <img src="[https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80](https://images.unsplash.com/photo-1519494026892-80bbd2d6fd0d?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80)" alt="Campus" class="rounded-lg shadow-md hover:scale-105 transition duration-300 cursor-pointer object-cover h-48 w-full">
+                <img src="[https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80](https://images.unsplash.com/photo-1579684385127-1ef15d508118?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80)" alt="Laboratory" class="rounded-lg shadow-md hover:scale-105 transition duration-300 cursor-pointer object-cover h-48 w-full">
+                <img src="[https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80](https://images.unsplash.com/photo-1581056771107-24ca5f033842?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80)" alt="Library" class="rounded-lg shadow-md hover:scale-105 transition duration-300 cursor-pointer object-cover h-48 w-full">
+                <img src="[https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80](https://images.unsplash.com/photo-1582719478250-c89cae4dc85b?ixlib=rb-4.0.3&auto=format&fit=crop&w=600&q=80)" alt="Medical Clinic" class="rounded-lg shadow-md hover:scale-105 transition duration-300 cursor-pointer object-cover h-48 w-full">
+            </div>
+        </div>
+    </section>
+
+    <!-- INSPIRATIONAL QUOTE SECTION -->
+    <section class="py-24 bg-gradient-to-br from-primary to-secondary text-white text-center relative overflow-hidden">
+        <i class="fas fa-quote-left absolute top-10 left-10 text-9xl text-white/10"></i>
+        <div class="max-w-4xl mx-auto px-4 reveal relative z-10">
+            <h3 class="text-3xl md:text-5xl font-serif font-bold italic leading-tight mb-8">
+                "May you be proud of the work you do, the person you are, and the difference you make."
+            </h3>
+            <div class="w-16 h-1 bg-accent mx-auto rounded-full"></div>
+        </div>
+    </section>
+
+    <!-- CONTACT & FOOTER SECTION -->
+    <footer id="contact" class="bg-dark pt-20 pb-10 border-t-4 border-nature">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 reveal">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <!-- Branding -->
+                <div class="lg:col-span-1">
+                    <h4 class="text-2xl font-bold text-white mb-6 flex items-center gap-2">
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-r from-secondary to-nature flex items-center justify-center text-white text-sm">M</div>
+                        Magadh Electro
+                    </h4>
+                    <p class="text-sm text-slate-400 leading-relaxed mb-6">Advancing Count Cesare Mattei's legacy of Electro-Homeopathy through quality education and accessible healthcare.</p>
+                    <a href="[https://magadhelectrohomeopathy.wordpress.com/](https://magadhelectrohomeopathy.wordpress.com/)" target="_blank" class="text-secondary hover:text-white text-sm font-medium transition"><i class="fab fa-wordpress mr-2"></i> Visit Official WordPress</a>
+                </div>
+
+                <!-- Active Hours -->
+                <div>
+                    <h4 class="text-lg font-bold text-white mb-6 border-b border-slate-700 pb-2">Active Hours</h4>
+                    <ul class="space-y-3 text-slate-400 text-sm">
+                        <li class="flex justify-between"><span class="text-accent font-bold">Monday</span> <span class="bg-red-500/20 text-red-400 px-2 rounded">Closed</span></li>
+                        <li class="flex justify-between"><span>Tuesday</span> <span>9am – 5pm</span></li>
+                        <li class="flex justify-between"><span>Wednesday</span> <span>9am – 5pm</span></li>
+                        <li class="flex justify-between"><span>Thursday</span> <span>9am – 5pm</span></li>
+                        <li class="flex justify-between"><span>Friday</span> <span>9am – 5pm</span></li>
+                        <li class="flex justify-between"><span>Saturday</span> <span>9am – 5pm</span></li>
+                    </ul>
+                </div>
+
+                <!-- Contact Info -->
+                <div class="lg:col-span-2">
+                    <h4 class="text-lg font-bold text-white mb-6 border-b border-slate-700 pb-2">Branch Office</h4>
+                    <div class="bg-slate-800 p-6 rounded-xl border border-slate-700">
+                        <ul class="space-y-5">
+                            <li class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-nature/20 text-nature flex items-center justify-center mr-4 flex-shrink-0"><i class="fas fa-map-marker-alt"></i></div>
+                                <div>
+                                    <h5 class="text-white font-semibold mb-1">Location</h5>
+                                    <p class="text-slate-400 text-sm">Sri Krishna Nagar, Motihari,<br>Bihar 845401</p>
+                                </div>
+                            </li>
+                            <li class="flex items-start">
+                                <div class="w-10 h-10 rounded-full bg-secondary/20 text-secondary flex items-center justify-center mr-4 flex-shrink-0"><i class="fas fa-phone-alt"></i></div>
+                                <div>
+                                    <h5 class="text-white font-semibold mb-1">Call Us</h5>
+                                    <p class="text-slate-400 text-sm">06252-239999<br>+91 9199726999</p>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright Bar -->
+            <div class="border-t border-slate-800 pt-8 text-center text-sm text-slate-500 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p>&copy; 2026 Magadh Electro Homeopathy Medical College and Hospital. All rights reserved.</p>
+                <div class="flex gap-4">
+                    <span class="text-xs text-slate-600 bg-slate-800 px-3 py-1 rounded-full">Designed & Developed via WebCanvas</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- INTERSECTION OBSERVER FOR SCROLL ANIMATIONS -->
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Function to handle scroll reveals
+            const revealOptions = { threshold: 0.15, rootMargin: "0px 0px -50px 0px" };
+            
+            const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    entry.target.classList.add('active');
+                    observer.unobserve(entry.target);
+                });
+            }, revealOptions);
+
+            document.querySelectorAll('.reveal').forEach(element => {
+                revealOnScroll.observe(element);
+            });
+        });
+    </script>
+</body>
+</html>

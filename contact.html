@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Contact & Book Appointment | Magadh Physiotherapy & Rehabilitation</title>
-  <meta name="description" content="Book your physiotherapy consultation with Dr. Umesh Chandra at Magadh Physiotherapy & Rehabilitation Center. Interactive symptom selector and clinic hours." />
+  <title>Contact & Book Appointment | Magadh Physiotherapy & Electro Homeopathy</title>
+  <meta name="description" content="Schedule your physiotherapy or Magadh Electro Homeopathy consultation with Dr. Umesh Chandra." />
   <link rel="icon" type="image/svg+xml" href="assets/favicon.svg" />
   <link rel="alternate icon" type="image/jpeg" href="assets/images/favicon.jpg" />
   <link rel="stylesheet" href="assets/style.css" />
@@ -14,55 +14,58 @@
 
   <div class="page-wrapper">
     <header class="navbar">
-      <div class="nav-inner">
+      <div class="container nav-inner">
         <a href="index.html" class="brand">
-          <div class="brand-logo-wrap">
-            <img src="assets/images/clinic-logo.jpg" alt="Magadh Clinic Logo" />
-          </div>
-          <div class="brand-text">
+          <img src="assets/images/clinic-logo.jpg" alt="Magadh Clinic Logo" class="brand-logo" />
+          <div>
             <span class="brand-title">Magadh Physiotherapy</span>
-            <span class="brand-subtitle">Rehabilitation & Pain Center</span>
+            <span class="brand-subtitle">& Electro Homeopathy Center</span>
           </div>
         </a>
+
         <button class="menu-toggle" aria-label="Toggle Menu" aria-expanded="false">☰</button>
-        <ul class="nav-links">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="about.html">About Dr. Umesh & Clinic</a></li>
-          <li><a href="services.html">Treatments & Rehab</a></li>
-          <li><a href="contact.html" class="active">Contact & Booking</a></li>
+
+        <ul class="nav-menu">
+          <li><a href="index.html" class="nav-link">Home</a></li>
+          <li><a href="about.html" class="nav-link">About</a></li>
+          <li><a href="services.html" class="nav-link">Services</a></li>
+          <li><a href="contact.html" class="nav-link active">Contact</a></li>
+          <li>
+            <a href="electro-homeopathy.html" class="nav-btn-electro">
+              🌿 Magadh Electro Homeopathy
+            </a>
+          </li>
+          <li>
+            <a href="#book" class="nav-btn-book">Book Visit</a>
+          </li>
         </ul>
-        <div class="nav-cta">
-          <a href="#book" class="btn btn-primary">Priority Slot →</a>
-        </div>
       </div>
     </header>
 
-    <section id="book" style="padding-top:9.5rem;">
+    <section id="book">
       <div class="container">
         <div class="section-header reveal-3d">
-          <div class="section-badge"><span class="pulse-dot"></span> Patient Intake Desk</div>
-          <h1>Start Your <span class="gradient-text">Pain-Free Recovery Today</span></h1>
-          <p>Select your pain areas and preferred slot below, or visit Magadh Physiotherapy & Rehabilitation Center directly for an in-person biomechanical evaluation.</p>
+          <span class="eyebrow">Appointments & Inquiries</span>
+          <h1>Book Your <span class="text-gradient">Clinical Consultation</span></h1>
+          <p>Reserve a slot for Physiotherapy, Rehabilitation, or Magadh Electro Homeopathy with Dr. Umesh Chandra.</p>
         </div>
 
         <div class="grid-2">
-          <!-- Interactive 3D Booking Form -->
-          <div class="tilt-card form-card reveal-3d" data-tilt-max="4">
-            <h3 style="font-size:1.5rem; margin-bottom:0.5rem;">Book Clinical Consultation</h3>
-            <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.5rem;">
-              Tap the body regions where you experience pain or stiffness so Dr. Umesh Chandra’s team can prepare for your session:
+          <div class="tilt-card form-box reveal-3d" data-tilt-max="3">
+            <h3 style="margin-bottom:0.4rem;">Patient Appointment Form</h3>
+            <p style="color:var(--text-muted); font-size:0.9rem; margin-bottom:1.25rem;">
+              Select your area of concern and preferred department below:
             </p>
 
             <div class="form-group">
-              <span class="form-label">1. Select Pain / Recovery Zones (Optional)</span>
-              <div class="body-zone-pills">
+              <span class="form-label">Select Focus Areas (Optional)</span>
+              <div class="pill-selector">
                 <button type="button" class="zone-pill">Neck / Cervical</button>
-                <button type="button" class="zone-pill">Shoulder / Arm</button>
                 <button type="button" class="zone-pill">Lower Back / Sciatica</button>
-                <button type="button" class="zone-pill">Knee / Osteoarthritis</button>
-                <button type="button" class="zone-pill">Stroke / Neuro Rehab</button>
-                <button type="button" class="zone-pill">Post-Surgery / Fracture</button>
-                <button type="button" class="zone-pill">Sports Injury</button>
+                <button type="button" class="zone-pill">Knee / Joint Pain</button>
+                <button type="button" class="zone-pill">Stroke / Paralysis</button>
+                <button type="button" class="zone-pill">Post-Surgery Rehab</button>
+                <button type="button" class="zone-pill">🌿 Electro Homeopathy Care</button>
               </div>
               <input type="hidden" id="selected-zones" name="zones" />
             </div>
@@ -70,21 +73,21 @@
             <form id="appointment-form">
               <div class="form-grid">
                 <div class="form-group">
-                  <label class="form-label">Patient Full Name *</label>
-                  <input type="text" name="name" class="form-control" placeholder="Enter full name" required />
+                  <label class="form-label">Patient Name *</label>
+                  <input type="text" name="name" class="form-control" placeholder="Your full name" required />
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Phone / WhatsApp Number *</label>
+                  <label class="form-label">Phone / WhatsApp *</label>
                   <input type="tel" name="phone" class="form-control" placeholder="+91 XXXXX XXXXX" required />
                 </div>
                 <div class="form-group">
-                  <label class="form-label">Required Department</label>
+                  <label class="form-label">Department</label>
                   <select name="service" class="form-control">
-                    <option value="Spine & Orthopedic Physiotherapy">Spine & Orthopedic Physiotherapy</option>
-                    <option value="Stroke & Paralysis Neuro Rehab">Stroke & Paralysis Neuro Rehab</option>
-                    <option value="Post-Operative / Fracture Rehab">Post-Operative / Fracture Rehab</option>
-                    <option value="Sports Injury & Manual Therapy">Sports Injury & Manual Therapy</option>
-                    <option value="Home Visit Physiotherapy Inquiry">Home Visit Physiotherapy Inquiry</option>
+                    <option value="Orthopedic & Spine Physiotherapy">Orthopedic & Spine Physiotherapy</option>
+                    <option value="Stroke & Neuro Rehabilitation">Stroke & Neuro Rehabilitation</option>
+                    <option value="Post-Surgical & Sports Rehab">Post-Surgical & Sports Rehab</option>
+                    <option value="Magadh Electro Homeopathy Consultation">🌿 Magadh Electro Homeopathy Consultation</option>
+                    <option value="Combined Physio + Electro Homeopathy">Combined Physio + Electro Homeopathy</option>
                   </select>
                 </div>
                 <div class="form-group">
@@ -92,48 +95,38 @@
                   <input type="date" name="date" class="form-control" />
                 </div>
                 <div class="form-group full">
-                  <label class="form-label">Describe Your Symptoms or Medical History</label>
-                  <textarea name="notes" rows="3" class="form-control" placeholder="Briefly mention how long you've had symptoms or any recent surgery/X-ray/MRI findings..."></textarea>
+                  <label class="form-label">Symptoms or Medical Notes</label>
+                  <textarea name="notes" rows="3" class="form-control" placeholder="Briefly describe your symptoms or duration..."></textarea>
                 </div>
               </div>
-              <button type="submit" class="btn btn-primary" style="width:100%;">Confirm Priority Appointment Request →</button>
-              <div id="form-status" style="display:none; margin-top:1rem; padding:1rem; border-radius:12px; background:rgba(16,185,129,0.18); border:1px solid var(--secondary); color:#ecfdf5; font-size:0.9rem;"></div>
+              <button type="submit" class="btn btn-primary" style="width:100%;">Confirm Appointment Request →</button>
+              <div id="form-status" style="display:none; margin-top:1rem; padding:1rem; border-radius:10px; background:var(--electro-light); color:#065f46; font-size:0.92rem;"></div>
             </form>
           </div>
 
-          <!-- Clinic Info & Facility Card -->
           <div class="reveal-3d" style="display:flex; flex-direction:column; gap:1.5rem;">
-            <div class="tilt-card service-card">
-              <div class="service-media" style="height:220px;">
-                <img src="assets/images/clinic-building.jpg" alt="Magadh Physiotherapy Clinic Exterior" />
-                <span class="service-tag">Direct Visit</span>
+            <div class="tilt-card content-card">
+              <div class="card-image" style="height:210px;">
+                <img src="assets/images/clinic-building.jpg" alt="Magadh Clinic Building" />
               </div>
-              <h3>Visit Magadh Physiotherapy Center</h3>
-              <!-- VERIFY/UPDATE: Insert exact street address, landmark, and phone number -->
-              <p style="margin-bottom:1rem;">
-                Consult directly with <strong>Dr. Umesh Chandra</strong> and our rehabilitation specialists. Please bring any previous X-rays, MRI reports, or surgical discharge summaries.
-              </p>
-              <ul class="feature-list">
-                <li><strong>Chief Consultant:</strong> Dr. Umesh Chandra</li>
-                <li><strong>OPD Timings:</strong> Monday – Saturday (8:00 AM – 8:00 PM)</li>
-                <li><strong>Emergency / Sunday:</strong> By Prior Appointment</li>
+              <h3>Clinic Location & Timings</h3>
+              <p>Visit us directly for one-on-one consultation with <strong>Dr. Umesh Chandra</strong>. Please bring any previous prescriptions, X-rays, or lab reports.</p>
+              <ul class="check-list">
+                <li><strong>Consultant:</strong> Dr. Umesh Chandra</li>
+                <li><strong>Timings:</strong> Monday – Saturday (8:00 AM – 8:00 PM)</li>
+                <li><strong>Electro Homeopathy Portal:</strong> <a href="https://magadhelectrohomeopathy.wordpress.com/" target="_blank" rel="noopener" style="color:var(--electro); font-weight:700;">magadhelectrohomeopathy.wordpress.com ↗</a></li>
               </ul>
             </div>
 
-            <!-- Patient FAQs -->
             <div>
-              <h3 style="margin-bottom:1rem;">Frequently Asked Questions</h3>
+              <h3 style="margin-bottom:0.85rem;">Frequently Asked Questions</h3>
               <div class="faq-item">
-                <button class="faq-question">Do I need a doctor’s referral to start physiotherapy? <span>+</span></button>
-                <div class="faq-answer">No referral is mandatory. Dr. Umesh Chandra performs a complete primary biomechanical and neurological assessment during your first visit. Bring any existing X-rays or MRI scans if available.</div>
+                <button class="faq-question">Can I combine Physiotherapy and Electro Homeopathy? <span>+</span></button>
+                <div class="faq-answer">Yes. Many patients with chronic arthritis, sciatica, cervical spondylosis, or nerve weakness experience faster and more complete relief by combining physical rehabilitation with internal spagyric plant remedies.</div>
               </div>
               <div class="faq-item">
-                <button class="faq-question">How long does a typical rehabilitation session last? <span>+</span></button>
-                <div class="faq-answer">Standard clinical sessions last 45 to 60 minutes, combining targeted electrotherapy/manual therapy with supervised active rehabilitation exercises.</div>
-              </div>
-              <div class="faq-item">
-                <button class="faq-question">What should I wear to my physiotherapy appointment? <span>+</span></button>
-                <div class="faq-answer">Comfortable, loose-fitting clothing that allows easy movement and clinical access to the affected joint or spine region is recommended.</div>
+                <button class="faq-question">Are Electro Homeopathy remedies completely free of side effects? <span>+</span></button>
+                <div class="faq-answer">Yes. Electro Homeopathy remedies are prepared purely from non-toxic medicinal plants using the Spagyric method and contain no chemical synthetics, steroids, or heavy metals.</div>
               </div>
             </div>
           </div>
@@ -144,8 +137,8 @@
     <footer class="footer">
       <div class="container">
         <div class="footer-bottom">
-          <span>© 2026 Magadh Physiotherapy & Rehabilitation Center. All rights reserved.</span>
-          <a href="index.html" style="color:var(--primary); text-decoration:none; font-weight:700;">← Back to Home</a>
+          <span>© 2026 Magadh Physiotherapy & Electro Homeopathy Center.</span>
+          <a href="index.html" style="color:#38bdf8; text-decoration:none; font-weight:700;">← Back to Home</a>
         </div>
       </div>
     </footer>

@@ -1,80 +1,67 @@
 /* ==========================================================================
-   MAGADH PHYSIOTHERAPY & REHABILITATION — 3D INTERACTIVE ENGINE
+   MAGADH PHYSIOTHERAPY & ELECTRO HOMEOPATHY — 3D INTERACTIVE ENGINE
    File: assets/main.js
    ========================================================================== */
 
 document.addEventListener('DOMContentLoaded', () => {
   initNavbar();
   init3DTiltCards();
-  initScrollReveal3D();
+  initScrollReveal();
   initCounters();
   initServiceFilter();
   initFaqAccordion();
   initBookingForm();
-  initWebGLBackground();
+  initDaylightWebGL();
 });
 
-/* 1. Sticky Glassmorphic Navbar & Mobile Drawer */
+/* 1. Responsive Navigation & Mobile Drawer */
 function initNavbar() {
   const navbar = document.querySelector('.navbar');
   const toggle = document.querySelector('.menu-toggle');
-  const navLinks = document.querySelector('.nav-links');
+  const navMenu = document.querySelector('.nav-menu');
 
   window.addEventListener('scroll', () => {
-    if (!navbar) return;
-    navbar.classList.toggle('scrolled', window.scrollY > 40);
+    if (navbar) navbar.classList.toggle('scrolled', window.scrollY > 20);
   });
 
-  if (toggle && navLinks) {
+  if (toggle && navMenu) {
     toggle.addEventListener('click', () => {
-      const isOpen = navLinks.classList.toggle('open');
+      const isOpen = navMenu.classList.toggle('open');
       toggle.setAttribute('aria-expanded', String(isOpen));
-      toggle.innerHTML = isOpen ? '✕' : '☰';
+      toggle.textContent = isOpen ? '✕' : '☰';
     });
   }
 }
 
-/* 2. 60fps 3D Perspective Tilt & Dynamic Glare Physics */
+/* 2. Subtle, Unclustered 3D Perspective Card Tilt */
 function init3DTiltCards() {
   const cards = document.querySelectorAll('.tilt-card');
-  const supportsHover = window.matchMedia('(hover: hover)').matches;
-  if (!supportsHover) return;
+  if (!window.matchMedia('(hover: hover)').matches) return;
 
   cards.forEach((card) => {
-    let glare = card.querySelector('.card-glare');
-    if (!glare) {
-      glare = document.createElement('div');
-      glare.className = 'card-glare';
-      card.appendChild(glare);
-    }
-
     card.addEventListener('mousemove', (e) => {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      const centerX = rect.width / 2;
-      const centerY = rect.height / 2;
+      const maxTilt = Number(card.dataset.tiltMax || 5);
 
-      const maxTilt = Number(card.dataset.tiltMax || 8);
-      const rotateX = ((y - centerY) / centerY) * -maxTilt;
-      const rotateY = ((x - centerX) / centerX) * maxTilt;
+      const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -maxTilt;
+      const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * maxTilt;
 
-      card.style.transform = `perspective(1200px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) scale3d(1.015, 1.015, 1.015)`;
-      card.style.setProperty('--glare-x', `${(x / rect.width) * 100}%`);
-      card.style.setProperty('--glare-y', `${(y / rect.height) * 100}%`);
+      card.style.transform = `perspective(1100px) rotateX(${rotateX.toFixed(2)}deg) rotateY(${rotateY.toFixed(2)}deg) translateY(-4px)`;
     });
 
     card.addEventListener('mouseleave', () => {
-      card.style.transform = 'perspective(1200px) rotateX(0deg) rotateY(0deg) scale3d(1, 1, 1)';
+      card.style.transform = 'perspective(1100px) rotateX(0deg) rotateY(0deg) translateY(0px)';
     });
   });
 }
 
-/* 3. Scroll-Triggered 3D Reveal Animations */
-function initScrollReveal3D() {
-  const elements = document.querySelectorAll('.reveal-3d');
+/* 3. Smooth Scroll Reveal */
+function initScrollReveal() {
+  const items = document.querySelectorAll('.reveal-3d');
   if (!('IntersectionObserver' in window)) {
-    elements.forEach((el) => el.classList.add('visible'));
+    items.forEach((el) => el.classList.add('visible'));
     return;
   }
 
@@ -87,13 +74,13 @@ function initScrollReveal3D() {
         }
       });
     },
-    { threshold: 0.14 }
+    { threshold: 0.12 }
   );
 
-  elements.forEach((el) => observer.observe(el));
+  items.forEach((el) => observer.observe(el));
 }
 
-/* 4. Animated Clinical Metric Counters */
+/* 4. Animated Clinical Counters */
 function initCounters() {
   const counters = document.querySelectorAll('[data-count]');
   if (!counters.length) return;
@@ -105,17 +92,17 @@ function initCounters() {
         const el = entry.target;
         const target = parseInt(el.dataset.count, 10);
         const suffix = el.dataset.suffix || '';
-        const duration = 1800;
-        const startTime = performance.now();
+        const start = performance.now();
+        const duration = 1600;
 
-        function updateCount(now) {
-          const progress = Math.min((now - startTime) / duration, 1);
+        function tick(now) {
+          const progress = Math.min((now - start) / duration, 1);
           const eased = 1 - Math.pow(1 - progress, 3);
           el.textContent = Math.floor(eased * target).toLocaleString() + suffix;
-          if (progress < 1) requestAnimationFrame(updateCount);
+          if (progress < 1) requestAnimationFrame(tick);
         }
 
-        requestAnimationFrame(updateCount);
+        requestAnimationFrame(tick);
         observer.unobserve(el);
       });
     },
@@ -125,11 +112,11 @@ function initCounters() {
   counters.forEach((c) => observer.observe(c));
 }
 
-/* 5. Interactive Clinical Specialty Filter (Services Page) */
+/* 5. Category Filter Tabs */
 function initServiceFilter() {
   const buttons = document.querySelectorAll('.filter-btn');
-  const items = document.querySelectorAll('[data-category]');
-  if (!buttons.length || !items.length) return;
+  const cards = document.querySelectorAll('[data-category]');
+  if (!buttons.length || !cards.length) return;
 
   buttons.forEach((btn) => {
     btn.addEventListener('click', () => {
@@ -137,9 +124,9 @@ function initServiceFilter() {
       btn.classList.add('active');
       const filter = btn.dataset.filter;
 
-      items.forEach((item) => {
-        const match = filter === 'all' || item.dataset.category.includes(filter);
-        item.style.display = match ? 'flex' : 'none';
+      cards.forEach((card) => {
+        const show = filter === 'all' || card.dataset.category.includes(filter);
+        card.style.display = show ? 'flex' : 'none';
       });
     });
   });
@@ -147,31 +134,30 @@ function initServiceFilter() {
 
 /* 6. FAQ Accordion */
 function initFaqAccordion() {
-  const items = document.querySelectorAll('.faq-item');
-  items.forEach((item) => {
+  document.querySelectorAll('.faq-item').forEach((item) => {
     const btn = item.querySelector('.faq-question');
     if (!btn) return;
     btn.addEventListener('click', () => {
-      const isOpen = item.classList.contains('open');
-      items.forEach((i) => i.classList.remove('open'));
-      if (!isOpen) item.classList.add('open');
+      const open = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach((i) => i.classList.remove('open'));
+      if (!open) item.classList.add('open');
     });
   });
 }
 
-/* 7. Interactive Body-Zone Selector & Appointment Submission */
+/* 7. Appointment Form & Symptom Pill Selector */
 function initBookingForm() {
   const pills = document.querySelectorAll('.zone-pill');
-  const hiddenZone = document.getElementById('selected-zones');
+  const hiddenInput = document.getElementById('selected-zones');
 
   pills.forEach((pill) => {
     pill.addEventListener('click', () => {
       pill.classList.toggle('selected');
-      if (hiddenZone) {
-        const selected = Array.from(document.querySelectorAll('.zone-pill.selected')).map(
-          (p) => p.textContent.trim()
+      if (hiddenInput) {
+        const active = Array.from(document.querySelectorAll('.zone-pill.selected')).map((p) =>
+          p.textContent.trim()
         );
-        hiddenZone.value = selected.join(', ');
+        hiddenInput.value = active.join(', ');
       }
     });
   });
@@ -182,12 +168,10 @@ function initBookingForm() {
       e.preventDefault();
       const status = document.getElementById('form-status');
       const name = form.querySelector('[name="name"]')?.value || 'Patient';
-      const service = form.querySelector('[name="service"]')?.value || 'Consultation';
-      const zones = hiddenZone?.value ? ` (Focus Areas: ${hiddenZone.value})` : '';
-
+      const dept = form.querySelector('[name="service"]')?.value || 'Consultation';
       if (status) {
         status.style.display = 'block';
-        status.innerHTML = `✓ Thank you, <strong>${name}</strong>! Your priority request for <strong>${service}</strong>${zones} has been recorded. Our clinical desk will confirm your slot shortly.`;
+        status.innerHTML = `✓ Thank you, <strong>${name}</strong>. Your request for <strong>${dept}</strong> has been received. Our clinic desk will contact you shortly.`;
       }
       form.reset();
       pills.forEach((p) => p.classList.remove('selected'));
@@ -195,14 +179,14 @@ function initBookingForm() {
   }
 }
 
-/* 8. Three.js 3D Biomechanical Helix & Restorative Particle Field */
-function initWebGLBackground() {
+/* 8. Soft Daylight Three.js 3D Bio-Helix & Botanical Lattice */
+function initDaylightWebGL() {
   const canvas = document.getElementById('webgl-canvas');
   if (!canvas || typeof THREE === 'undefined') return;
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.z = 32;
+  const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 1000);
+  camera.position.z = 34;
 
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -211,55 +195,36 @@ function initWebGLBackground() {
   const group = new THREE.Group();
   scene.add(group);
 
-  // Create 3D Biomechanical Double-Helix Spine Lattice
-  const sphereGeo = new THREE.SphereGeometry(0.24, 16, 16);
-  const cyanMat = new THREE.MeshBasicMaterial({ color: 0x00d2ff });
-  const emeraldMat = new THREE.MeshBasicMaterial({ color: 0x10b981 });
-  const lineMat = new THREE.LineBasicMaterial({ color: 0x38bdf8, transparent: true, opacity: 0.25 });
+  const nodeGeo = new THREE.SphereGeometry(0.22, 14, 14);
+  const blueMat = new THREE.MeshBasicMaterial({ color: 0x0284c7 });
+  const greenMat = new THREE.MeshBasicMaterial({ color: 0x059669 });
+  const lineMat = new THREE.LineBasicMaterial({ color: 0x94a3b8, transparent: true, opacity: 0.22 });
 
-  const vertebraCount = 36;
-  for (let i = 0; i < vertebraCount; i++) {
-    const t = (i - vertebraCount / 2) * 0.85;
-    const angle = i * 0.35;
-    const radius = 5.5;
+  const count = 28;
+  for (let i = 0; i < count; i++) {
+    const y = (i - count / 2) * 1.1;
+    const angle = i * 0.32;
+    const r = 6.5;
 
-    const x1 = Math.cos(angle) * radius;
-    const z1 = Math.sin(angle) * radius;
-    const x2 = Math.cos(angle + Math.PI) * radius;
-    const z2 = Math.sin(angle + Math.PI) * radius;
+    const x1 = Math.cos(angle) * r;
+    const z1 = Math.sin(angle) * r;
+    const x2 = Math.cos(angle + Math.PI) * r;
+    const z2 = Math.sin(angle + Math.PI) * r;
 
-    const node1 = new THREE.Mesh(sphereGeo, cyanMat);
-    node1.position.set(x1, t, z1);
-    group.add(node1);
+    const m1 = new THREE.Mesh(nodeGeo, blueMat);
+    m1.position.set(x1, y, z1);
+    group.add(m1);
 
-    const node2 = new THREE.Mesh(sphereGeo, emeraldMat);
-    node2.position.set(x2, t, z2);
-    group.add(node2);
+    const m2 = new THREE.Mesh(nodeGeo, greenMat);
+    m2.position.set(x2, y, z2);
+    group.add(m2);
 
-    const connectorGeo = new THREE.BufferGeometry().setFromPoints([
-      new THREE.Vector3(x1, t, z1),
-      new THREE.Vector3(x2, t, z2)
+    const lineGeo = new THREE.BufferGeometry().setFromPoints([
+      new THREE.Vector3(x1, y, z1),
+      new THREE.Vector3(x2, y, z2)
     ]);
-    const connector = new THREE.Line(connectorGeo, lineMat);
-    group.add(connector);
+    group.add(new THREE.Line(lineGeo, lineMat));
   }
-
-  // Ambient Floating Bio-Particles
-  const particleCount = 240;
-  const positions = new Float32Array(particleCount * 3);
-  for (let i = 0; i < particleCount * 3; i++) {
-    positions[i] = (Math.random() - 0.5) * 70;
-  }
-  const particleGeo = new THREE.BufferGeometry();
-  particleGeo.setAttribute('position', new THREE.BufferAttribute(positions, 3));
-  const particleMat = new THREE.PointsMaterial({
-    color: 0x00d2ff,
-    size: 0.18,
-    transparent: true,
-    opacity: 0.55
-  });
-  const particles = new THREE.Points(particleGeo, particleMat);
-  scene.add(particles);
 
   let mouseX = 0;
   let mouseY = 0;
@@ -276,10 +241,9 @@ function initWebGLBackground() {
 
   function animate() {
     requestAnimationFrame(animate);
-    group.rotation.y += 0.0045;
-    group.rotation.x += (mouseY * 0.25 - group.rotation.x) * 0.05;
-    group.position.x += (mouseX * 3.5 - group.position.x) * 0.04;
-    particles.rotation.y -= 0.0012;
+    group.rotation.y += 0.003;
+    group.rotation.x += (mouseY * 0.15 - group.rotation.x) * 0.04;
+    group.position.x += (mouseX * 2.5 - group.position.x) * 0.04;
     renderer.render(scene, camera);
   }
 

@@ -1,5 +1,5 @@
 /* ==========================================================================
-   MAGADH PHYSIOTHERAPY & ELECTRO HOMEOPATHY — 3D INTERACTIVE ENGINE
+   MAGADH PAIN & PARALYSIS CLINIC — 3D & INTERACTIVE ENGINE
    File: assets/main.js
    ========================================================================== */
 
@@ -8,13 +8,11 @@ document.addEventListener('DOMContentLoaded', () => {
   init3DTiltCards();
   initScrollReveal();
   initCounters();
-  initServiceFilter();
-  initFaqAccordion();
-  initBookingForm();
+  initBookingWhatsApp();
   initDaylightWebGL();
 });
 
-/* 1. Responsive Navigation & Mobile Drawer */
+/* 1. Sticky Navbar & Mobile Menu */
 function initNavbar() {
   const navbar = document.querySelector('.navbar');
   const toggle = document.querySelector('.menu-toggle');
@@ -33,7 +31,7 @@ function initNavbar() {
   }
 }
 
-/* 2. Subtle, Unclustered 3D Perspective Card Tilt */
+/* 2. Smooth 3D Perspective Card Tilt */
 function init3DTiltCards() {
   const cards = document.querySelectorAll('.tilt-card');
   if (!window.matchMedia('(hover: hover)').matches) return;
@@ -43,7 +41,7 @@ function init3DTiltCards() {
       const rect = card.getBoundingClientRect();
       const x = e.clientX - rect.left;
       const y = e.clientY - rect.top;
-      const maxTilt = Number(card.dataset.tiltMax || 5);
+      const maxTilt = Number(card.dataset.tiltMax || 4.5);
 
       const rotateX = ((y - rect.height / 2) / (rect.height / 2)) * -maxTilt;
       const rotateY = ((x - rect.width / 2) / (rect.width / 2)) * maxTilt;
@@ -57,7 +55,7 @@ function init3DTiltCards() {
   });
 }
 
-/* 3. Smooth Scroll Reveal */
+/* 3. Scroll Reveal Observer */
 function initScrollReveal() {
   const items = document.querySelectorAll('.reveal-3d');
   if (!('IntersectionObserver' in window)) {
@@ -74,13 +72,13 @@ function initScrollReveal() {
         }
       });
     },
-    { threshold: 0.12 }
+    { threshold: 0.1 }
   );
 
   items.forEach((el) => observer.observe(el));
 }
 
-/* 4. Animated Clinical Counters */
+/* 4. Animated Statistics Counters */
 function initCounters() {
   const counters = document.querySelectorAll('[data-count]');
   if (!counters.length) return;
@@ -93,7 +91,7 @@ function initCounters() {
         const target = parseInt(el.dataset.count, 10);
         const suffix = el.dataset.suffix || '';
         const start = performance.now();
-        const duration = 1600;
+        const duration = 1500;
 
         function tick(now) {
           const progress = Math.min((now - start) / duration, 1);
@@ -112,41 +110,8 @@ function initCounters() {
   counters.forEach((c) => observer.observe(c));
 }
 
-/* 5. Category Filter Tabs */
-function initServiceFilter() {
-  const buttons = document.querySelectorAll('.filter-btn');
-  const cards = document.querySelectorAll('[data-category]');
-  if (!buttons.length || !cards.length) return;
-
-  buttons.forEach((btn) => {
-    btn.addEventListener('click', () => {
-      buttons.forEach((b) => b.classList.remove('active'));
-      btn.classList.add('active');
-      const filter = btn.dataset.filter;
-
-      cards.forEach((card) => {
-        const show = filter === 'all' || card.dataset.category.includes(filter);
-        card.style.display = show ? 'flex' : 'none';
-      });
-    });
-  });
-}
-
-/* 6. FAQ Accordion */
-function initFaqAccordion() {
-  document.querySelectorAll('.faq-item').forEach((item) => {
-    const btn = item.querySelector('.faq-question');
-    if (!btn) return;
-    btn.addEventListener('click', () => {
-      const open = item.classList.contains('open');
-      document.querySelectorAll('.faq-item').forEach((i) => i.classList.remove('open'));
-      if (!open) item.classList.add('open');
-    });
-  });
-}
-
-/* 7. Appointment Form & Symptom Pill Selector */
-function initBookingForm() {
+/* 5. Symptom Pill Selector & Direct WhatsApp Appointment Integration */
+function initBookingWhatsApp() {
   const pills = document.querySelectorAll('.zone-pill');
   const hiddenInput = document.getElementById('selected-zones');
 
@@ -166,27 +131,35 @@ function initBookingForm() {
   if (form) {
     form.addEventListener('submit', (e) => {
       e.preventDefault();
+      const name = form.querySelector('[name="name"]')?.value || '';
+      const phone = form.querySelector('[name="phone"]')?.value || '';
+      const service = form.querySelector('[name="service"]')?.value || '';
+      const date = form.querySelector('[name="date"]')?.value || 'Earliest Slot';
+      const notes = form.querySelector('[name="notes"]')?.value || '';
+      const zones = hiddenInput?.value ? `\nCondition Areas: ${hiddenInput.value}` : '';
+
       const status = document.getElementById('form-status');
-      const name = form.querySelector('[name="name"]')?.value || 'Patient';
-      const dept = form.querySelector('[name="service"]')?.value || 'Consultation';
       if (status) {
         status.style.display = 'block';
-        status.innerHTML = `✓ Thank you, <strong>${name}</strong>. Your request for <strong>${dept}</strong> has been received. Our clinic desk will contact you shortly.`;
+        status.innerHTML = `✓ Thank you, <strong>${name}</strong>! Opening WhatsApp to confirm your priority slot with Magadh Desk (+91 91997 26999)...`;
       }
-      form.reset();
-      pills.forEach((p) => p.classList.remove('selected'));
+
+      const text = encodeURIComponent(
+        `Hello Magadh Clinic / College Desk,\n\nI would like to book an appointment / inquiry:\n• Name: ${name}\n• Phone: ${phone}\n• Purpose: ${service}\n• Preferred Date: ${date}${zones}\n• Notes: ${notes}`
+      );
+      window.open(`https://wa.me/919199726999?text=${text}`, '_blank');
     });
   }
 }
 
-/* 8. Soft Daylight Three.js 3D Bio-Helix & Botanical Lattice */
+/* 6. Daylight Three.js 3D Biomechanical Spine Helix */
 function initDaylightWebGL() {
   const canvas = document.getElementById('webgl-canvas');
   if (!canvas || typeof THREE === 'undefined') return;
 
   const scene = new THREE.Scene();
   const camera = new THREE.PerspectiveCamera(55, window.innerWidth / window.innerHeight, 0.1, 1000);
-  camera.position.z = 34;
+  camera.position.z = 35;
 
   const renderer = new THREE.WebGLRenderer({ canvas, alpha: true, antialias: true });
   renderer.setSize(window.innerWidth, window.innerHeight);
@@ -196,13 +169,13 @@ function initDaylightWebGL() {
   scene.add(group);
 
   const nodeGeo = new THREE.SphereGeometry(0.22, 14, 14);
-  const blueMat = new THREE.MeshBasicMaterial({ color: 0x0284c7 });
-  const greenMat = new THREE.MeshBasicMaterial({ color: 0x059669 });
-  const lineMat = new THREE.LineBasicMaterial({ color: 0x94a3b8, transparent: true, opacity: 0.22 });
+  const tealMat = new THREE.MeshBasicMaterial({ color: 0x0284c7 });
+  const emeraldMat = new THREE.MeshBasicMaterial({ color: 0x059669 });
+  const lineMat = new THREE.LineBasicMaterial({ color: 0x94a3b8, transparent: true, opacity: 0.2 });
 
-  const count = 28;
+  const count = 26;
   for (let i = 0; i < count; i++) {
-    const y = (i - count / 2) * 1.1;
+    const y = (i - count / 2) * 1.15;
     const angle = i * 0.32;
     const r = 6.5;
 
@@ -211,11 +184,11 @@ function initDaylightWebGL() {
     const x2 = Math.cos(angle + Math.PI) * r;
     const z2 = Math.sin(angle + Math.PI) * r;
 
-    const m1 = new THREE.Mesh(nodeGeo, blueMat);
+    const m1 = new THREE.Mesh(nodeGeo, tealMat);
     m1.position.set(x1, y, z1);
     group.add(m1);
 
-    const m2 = new THREE.Mesh(nodeGeo, greenMat);
+    const m2 = new THREE.Mesh(nodeGeo, emeraldMat);
     m2.position.set(x2, y, z2);
     group.add(m2);
 
